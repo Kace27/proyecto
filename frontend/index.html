@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Verificación de PIN</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="pin-container">
+            <h2 class="title">Ingresa tu pin</h2>
+            
+            <!-- PIN display indicators -->
+            <div class="pin-display">
+                <div class="pin-dot" id="pin-dot-1"></div>
+                <div class="pin-dot" id="pin-dot-2"></div>
+                <div class="pin-dot" id="pin-dot-3"></div>
+                <div class="pin-dot" id="pin-dot-4"></div>
+            </div>
+            
+            <!-- Message display area -->
+            <div class="message-area" id="message-area"></div>
+            
+            <!-- Numeric keypad -->
+            <div class="keypad">
+                <div class="keypad-row">
+                    <button class="key" data-value="1">1</button>
+                    <button class="key" data-value="2">2</button>
+                    <button class="key" data-value="3">3</button>
+                </div>
+                <div class="keypad-row">
+                    <button class="key" data-value="4">4</button>
+                    <button class="key" data-value="5">5</button>
+                    <button class="key" data-value="6">6</button>
+                </div>
+                <div class="keypad-row">
+                    <button class="key" data-value="7">7</button>
+                    <button class="key" data-value="8">8</button>
+                    <button class="key" data-value="9">9</button>
+                </div>
+                <div class="keypad-row">
+                    <button class="key clear-btn" id="clear-btn">C</button>
+                    <button class="key" data-value="0">0</button>
+                    <button class="key submit-btn" id="submit-btn">OK</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Result display -->
+        <div class="result-container" id="result-container">
+            <h3>Bienvenido</h3>
+            <p id="employee-name"></p>
+            <button id="reset-btn">Reiniciar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

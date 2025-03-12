@@ -1,0 +1,14 @@
+---
+description: How I like to code
+globs: 
+alwaysApply: false
+---
+
+# Coding workflow preferences
+
+- Focus on the areas of code relevant to the task
+- Do no touch code that is unreleated the task
+- Write thorough test for all major functionality
+- Avoid making major changes to the patterns and architecture of how a feature works, after it has show to work well, unless explicity structed
+- Always think about what other methods an areas of code might be affected by code changes
+
