@@ -110,3 +110,159 @@
 2025-03-12 15:40:18,858 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
 2025-03-12 15:40:18,858 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '73'}
 2025-03-12 15:40:18,858 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:40:18] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:46:54,297 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:46:54,297 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:46:54,297 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:46:54,298 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:46:54] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:46:54,300 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:46:54,301 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"1234"}
+2025-03-12 15:46:54,301 - __main__ - INFO - PIN recibido: 1234
+2025-03-12 15:46:54,303 - __main__ - INFO - PIN válido, empleado encontrado: Mesero
+2025-03-12 15:46:54,304 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:46:54,304 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:46:54,304 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '64'}
+2025-03-12 15:46:54,305 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:46:54] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:46:59,430 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:46:59,430 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:46:59,431 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:46:59,431 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:46:59] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:46:59,433 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:46:59,434 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"5678"}
+2025-03-12 15:46:59,434 - __main__ - INFO - PIN recibido: 5678
+2025-03-12 15:46:59,435 - __main__ - INFO - PIN válido, empleado encontrado: Cocinero
+2025-03-12 15:46:59,435 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:46:59,435 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:46:59,435 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '66'}
+2025-03-12 15:46:59,436 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:46:59] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:47:08,297 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:47:08,297 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:47:08,298 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:47:08,298 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:47:08] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:47:08,300 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:47:08,300 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"1265"}
+2025-03-12 15:47:08,300 - __main__ - INFO - PIN recibido: 1265
+2025-03-12 15:47:08,301 - __main__ - INFO - PIN no encontrado en la base de datos
+2025-03-12 15:47:08,301 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:47:08,302 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:47:08,302 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '58'}
+2025-03-12 15:47:08,302 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:47:08] "[33mPOST /verify_pin HTTP/1.1[0m" 404 -
+2025-03-12 15:47:12,045 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:47:12,046 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"1234"}
+2025-03-12 15:47:12,046 - __main__ - INFO - PIN recibido: 1234
+2025-03-12 15:47:12,047 - __main__ - INFO - PIN válido, empleado encontrado: Mesero
+2025-03-12 15:47:12,047 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:47:12,047 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:47:12,047 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '64'}
+2025-03-12 15:47:12,048 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:47:12] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:47:19,528 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:47:19,528 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:47:19,528 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:47:19,528 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:47:19] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:47:19,530 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:47:19,530 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"5678"}
+2025-03-12 15:47:19,530 - __main__ - INFO - PIN recibido: 5678
+2025-03-12 15:47:19,531 - __main__ - INFO - PIN válido, empleado encontrado: Cocinero
+2025-03-12 15:47:19,531 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:47:19,532 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:47:19,532 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '66'}
+2025-03-12 15:47:19,532 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:47:19] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:47:25,079 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:47:25,080 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:47:25,080 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:47:25,080 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:47:25] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:47:25,083 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:47:25,083 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"5678"}
+2025-03-12 15:47:25,083 - __main__ - INFO - PIN recibido: 5678
+2025-03-12 15:47:25,084 - __main__ - INFO - PIN válido, empleado encontrado: Cocinero
+2025-03-12 15:47:25,084 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:47:25,084 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:47:25,085 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '66'}
+2025-03-12 15:47:25,085 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:47:25] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:47:29,829 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:47:29,829 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"1234"}
+2025-03-12 15:47:29,829 - __main__ - INFO - PIN recibido: 1234
+2025-03-12 15:47:29,830 - __main__ - INFO - PIN válido, empleado encontrado: Mesero
+2025-03-12 15:47:29,831 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:47:29,831 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:47:29,831 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '64'}
+2025-03-12 15:47:29,831 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:47:29] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:48:03,613 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:48:03,614 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:03,614 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:48:03,615 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:03] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:48:03,617 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:48:03,617 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"1234"}
+2025-03-12 15:48:03,617 - __main__ - INFO - PIN recibido: 1234
+2025-03-12 15:48:03,618 - __main__ - INFO - PIN válido, empleado encontrado: Mesero
+2025-03-12 15:48:03,618 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:48:03,618 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:03,618 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '64'}
+2025-03-12 15:48:03,619 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:03] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:48:11,607 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:48:11,607 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:11,608 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:48:11,608 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:11] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:48:11,610 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:48:11,610 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"1234"}
+2025-03-12 15:48:11,610 - __main__ - INFO - PIN recibido: 1234
+2025-03-12 15:48:11,611 - __main__ - INFO - PIN válido, empleado encontrado: Mesero
+2025-03-12 15:48:11,611 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:48:11,611 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:11,612 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '64'}
+2025-03-12 15:48:11,612 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:11] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:48:24,228 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:48:24,229 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:24,229 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:48:24,229 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:24] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:48:24,232 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:48:24,232 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"8000"}
+2025-03-12 15:48:24,232 - __main__ - INFO - PIN recibido: 8000
+2025-03-12 15:48:24,233 - __main__ - INFO - PIN no encontrado en la base de datos
+2025-03-12 15:48:24,233 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:48:24,233 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:24,233 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '58'}
+2025-03-12 15:48:24,234 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:24] "[33mPOST /verify_pin HTTP/1.1[0m" 404 -
+2025-03-12 15:48:33,862 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:48:33,862 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:33,863 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:48:33,863 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:33] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:48:33,866 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:48:33,866 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"8097"}
+2025-03-12 15:48:33,866 - __main__ - INFO - PIN recibido: 8097
+2025-03-12 15:48:33,867 - __main__ - INFO - PIN no encontrado en la base de datos
+2025-03-12 15:48:33,868 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:48:33,868 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:33,868 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '58'}
+2025-03-12 15:48:33,868 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:33] "[33mPOST /verify_pin HTTP/1.1[0m" 404 -
+2025-03-12 15:48:37,160 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:48:37,160 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"1234"}
+2025-03-12 15:48:37,161 - __main__ - INFO - PIN recibido: 1234
+2025-03-12 15:48:37,161 - __main__ - INFO - PIN válido, empleado encontrado: Mesero
+2025-03-12 15:48:37,162 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:48:37,162 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:37,162 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '64'}
+2025-03-12 15:48:37,162 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:37] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:48:42,178 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:48:42,178 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:42,178 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:48:42,179 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:42] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:48:42,181 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:48:42,181 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"5678"}
+2025-03-12 15:48:42,181 - __main__ - INFO - PIN recibido: 5678
+2025-03-12 15:48:42,183 - __main__ - INFO - PIN válido, empleado encontrado: Cocinero
+2025-03-12 15:48:42,183 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:48:42,183 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:48:42,183 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '66'}
+2025-03-12 15:48:42,183 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:48:42] "POST /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:49:38,464 - __main__ - DEBUG - Procesando solicitud: OPTIONS /verify_pin
+2025-03-12 15:49:38,465 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:8000', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:49:38,465 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2025-03-12 15:49:38,465 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:49:38] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-03-12 15:49:38,468 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-03-12 15:49:38,468 - __main__ - DEBUG - Cuerpo de la solicitud: {"pin":"1234"}
+2025-03-12 15:49:38,468 - __main__ - INFO - PIN recibido: 1234
+2025-03-12 15:49:38,470 - __main__ - INFO - PIN válido, empleado encontrado: Mesero
+2025-03-12 15:49:38,470 - __main__ - DEBUG - Procesando solicitud: POST /verify_pin
+2025-03-12 15:49:38,470 - __main__ - DEBUG - Cabeceras de solicitud: {'Host': 'localhost:5002', 'Connection': 'keep-alive', 'Content-Length': '14', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'application/json', 'Sec-Ch-Ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:8000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'es-ES,es;q=0.9'}
+2025-03-12 15:49:38,470 - __main__ - DEBUG - Cabeceras de respuesta: {'Content-Type': 'application/json', 'Content-Length': '64'}
+2025-03-12 15:49:38,471 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 15:49:38] "POST /verify_pin HTTP/1.1" 200 -

@@ -21,5 +21,21 @@ def read_employees():
     # Cerrar la conexión
     conn.close()
 
-# Llamar a la función
+def update_employee_name(employee_id, new_name):
+    # Conectar a la base de datos
+    conn = sqlite3.connect(DATABASE_PATH)
+    cursor = conn.cursor()
+    
+    # Ejecutar la consulta de actualización
+    cursor.execute('UPDATE employees SET name = ? WHERE id = ?', (new_name, employee_id))
+    
+    # Confirmar los cambios
+    conn.commit()
+    
+    # Cerrar la conexión
+    conn.close()
+    print(f'Nombre del empleado con ID {employee_id} actualizado a {new_name}.')
+
+# Llamar a la función para leer empleados
 read_employees()
+    
