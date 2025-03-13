@@ -1,0 +1,26 @@
+{
+    "tickets": {
+        "3": {
+            "table": "3",
+            "items": [],
+            "total": 0
+        },
+        "2": {
+            "table": "2",
+            "items": [
+                {
+                    "id": 2,
+                    "name": "Articulo 2",
+                    "price": 120,
+                    "quantity": 1
+                }
+            ],
+            "total": 120
+        },
+        "4": {
+            "table": "4",
+            "items": [],
+            "total": 0
+        }
+    }
+}

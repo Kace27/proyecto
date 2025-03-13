@@ -156,10 +156,23 @@ document.addEventListener('DOMContentLoaded', function() {
                         console.log("Datos parseados:", data);
                         
                         if (data.success) {
-                            // PIN is valid - show employee info
-                            employeeNameElement.textContent = data.employee.name;
-                            resultContainer.classList.add('show');
-                            messageArea.textContent = '';
+                            // Store employee data in localStorage
+                            const employeeData = {
+                                name: data.employee.name,
+                                role: data.employee.role
+                            };
+                            localStorage.setItem('employeeData', JSON.stringify(employeeData));
+                            
+                            // Check employee role for redirection
+                            if (data.employee.role === 'Mesero') {
+                                // Redirect to table selection page
+                                window.location.href = 'mesas.html';
+                            } else {
+                                // For other roles, show the traditional UI
+                                employeeNameElement.textContent = data.employee.name;
+                                resultContainer.classList.add('show');
+                                messageArea.textContent = '';
+                            }
                         } else {
                             // PIN is invalid
                             messageArea.textContent = data.message || 'Error al verificar el PIN';

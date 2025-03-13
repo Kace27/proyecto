@@ -1,0 +1,64 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Comidas",
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Hamburguesas",
+                    "price": 100,
+                    "image": "https://placehold.co/122x84"
+                },
+                {
+                    "id": 2,
+                    "name": "Papas",
+                    "price": 120,
+                    "image": "https://placehold.co/122x84"
+                },
+                {
+                    "id": 3,
+                    "name": "Ensaladas",
+                    "price": 90,
+                    "image": "https://placehold.co/122x84"
+                },
+                {
+                    "id": 4,
+                    "name": "Pizzas",
+                    "price": 150,
+                    "image": "https://placehold.co/122x84"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Bebidas",
+            "items": [
+                {
+                    "id": 5,
+                    "name": "Agua",
+                    "price": 80,
+                    "image": "https://placehold.co/122x84"
+                },
+                {
+                    "id": 6,
+                    "name": "Coca Cola",
+                    "price": 110,
+                    "image": "https://placehold.co/122x84"
+                },
+                {
+                    "id": 7,
+                    "name": "Cerveza",
+                    "price": 130,
+                    "image": "https://placehold.co/122x84"
+                },
+                {
+                    "id": 8,
+                    "name": "Vino",
+                    "price": 95,
+                    "image": "https://placehold.co/122x84"
+                }
+            ]
+        }
+    ]
+}

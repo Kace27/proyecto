@@ -1,0 +1,34 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "pin": "1234",
+            "name": "Juan Pérez Gómez",
+            "role": "Mesero Jefe"
+        },
+        {
+            "id": 2,
+            "pin": "5678",
+            "name": "Ana García",
+            "role": "Gerente"
+        },
+        {
+            "id": 3,
+            "pin": "9012",
+            "name": "Carlos Rodríguez",
+            "role": "Mesero"
+        },
+        {
+            "id": 4,
+            "pin": "4321",
+            "name": "María López",
+            "role": "Administrador"
+        },
+        {
+            "id": 5,
+            "pin": "8765",
+            "name": "Pedro Sánchez",
+            "role": "Cocina"
+        }
+    ]
+}
