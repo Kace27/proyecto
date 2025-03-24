@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sistema de Verificación de PIN
 
 Esta aplicación permite a los empleados ingresar un PIN de 4 dígitos para identificarse en el sistema.
@@ -108,3 +109,4 @@ La aplicación viene preconfigurada con los siguientes PINs:
 - PIN: 9012 - Nombre: Carlos Rodríguez
 - PIN: 4321 - Nombre: María López
 - PIN: 8765 - Nombre: Pedro Sánchez 
+=======
