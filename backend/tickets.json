@@ -2,8 +2,27 @@
     "tickets": {
         "3": {
             "table": "3",
-            "items": [],
-            "total": 0
+            "items": [
+                {
+                    "id": 4,
+                    "name": "Pizzas",
+                    "price": 150,
+                    "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "name": "Papas",
+                    "price": 120,
+                    "quantity": 1
+                },
+                {
+                    "id": 1,
+                    "name": "Hamburguesas",
+                    "price": 100,
+                    "quantity": 1
+                }
+            ],
+            "total": 370
         },
         "2": {
             "table": "2",
@@ -21,6 +40,24 @@
             "table": "4",
             "items": [],
             "total": 0
+        },
+        "1": {
+            "table": "1",
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Hamburguesas",
+                    "price": 100,
+                    "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "name": "Papas",
+                    "price": 120,
+                    "quantity": 1
+                }
+            ],
+            "total": 220
         }
     }
 }
