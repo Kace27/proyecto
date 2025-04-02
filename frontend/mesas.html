@@ -161,10 +161,16 @@
                     localStorage.setItem('selectedTable', tableNumber);
                     
                     // Redirect to the ticket page for this table
-                    window.location.href = `ticket.html?table=${tableNumber}`;
+                    handleMesaClick(tableNumber);
                 });
             });
         });
+
+        // Modificar la redirección al hacer clic en una mesa
+        function handleMesaClick(numeroMesa) {
+            // Ahora redirige al menú en lugar de directamente al ticket
+            window.location.href = `menu.html?table=${numeroMesa}`;
+        }
     </script>
 </body>
 </html> 

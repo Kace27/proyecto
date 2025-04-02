@@ -289,53 +289,76 @@ def update_ticket(table_number):
 
 @app.route('/ticket/<table_number>/add_item', methods=['POST'])
 def add_item_to_ticket(table_number):
-    """Añade un artículo al ticket de una mesa"""
-    data = request.json
-    if not data or "item_id" not in data:
-        return jsonify({'success': False, 'message': 'Datos inválidos'}), 400
-    
-    # Cargar el menú para obtener los detalles del ítem
-    menu_data = load_menu()
-    item = None
-    
-    # Buscar el ítem en el menú
-    for category in menu_data["categories"]:
-        for menu_item in category["items"]:
-            if menu_item["id"] == data["item_id"]:
-                item = menu_item
+    """Agrega un ítem al ticket de una mesa"""
+    try:
+        tickets_data = load_tickets()
+        menu_data = load_menu()
+        
+        # Inicializar el ticket si no existe
+        if table_number not in tickets_data['tickets']:
+            tickets_data['tickets'][table_number] = {'items': [], 'total': 0}
+        
+        # Obtener datos de la solicitud
+        data = request.json
+        item_id = data.get('item_id')
+        quantity = data.get('quantity', 1)
+        customization = data.get('customization', None)
+        
+        # Buscar el ítem en el menú
+        item = None
+        for category in menu_data['categories']:
+            for menu_item in category['items']:
+                if menu_item['id'] == item_id:
+                    item = menu_item
+                    break
+            if item:
                 break
-        if item:
-            break
-    
-    if not item:
-        return jsonify({'success': False, 'message': 'Artículo no encontrado'}), 404
-    
-    # Cargar los tickets
-    tickets_data = load_tickets()
-    
-    # Crear el ticket si no existe
-    if table_number not in tickets_data["tickets"]:
-        tickets_data["tickets"][table_number] = {
-            "table": table_number,
-            "items": [],
-            "total": 0
+        
+        if not item:
+            return jsonify({'success': False, 'message': 'Ítem no encontrado en el menú'})
+        
+        # Crear el ítem para el ticket con la información básica
+        ticket_item = {
+            'id': item['id'],
+            'name': item['name'],
+            'price': item['price'],
+            'quantity': quantity
         }
-    
-    # Añadir el ítem al ticket
-    ticket_item = {
-        "id": item["id"],
-        "name": item["name"],
-        "price": item["price"],
-        "quantity": data.get("quantity", 1)
-    }
-    
-    # Calcular el nuevo total
-    tickets_data["tickets"][table_number]["items"].append(ticket_item)
-    total = sum(item["price"] * item["quantity"] for item in tickets_data["tickets"][table_number]["items"])
-    tickets_data["tickets"][table_number]["total"] = total
-    
-    save_tickets(tickets_data)
-    return jsonify({'success': True, 'ticket': tickets_data["tickets"][table_number]})
+        
+        # Añadir información de personalización si existe
+        if customization:
+            ticket_item['customization'] = customization
+            
+            # Modificar el nombre para indicar la variante
+            if 'variant' in customization:
+                ticket_item['name'] = f"{ticket_item['name']} (Var. {customization['variant']})"
+            
+            # Añadir información sobre ingredientes excluidos
+            if 'ingredients' in customization:
+                # Esta es una lógica básica, puedes adaptarla según tus necesidades
+                ticket_item['ingredients'] = customization['ingredients']
+        
+        # Agregar ítem al ticket
+        tickets_data['tickets'][table_number]['items'].append(ticket_item)
+        
+        # Recalcular el total
+        total = 0
+        for item in tickets_data['tickets'][table_number]['items']:
+            total += item['price'] * item['quantity']
+        
+        tickets_data['tickets'][table_number]['total'] = total
+        
+        # Guardar cambios
+        save_tickets(tickets_data)
+        
+        return jsonify({
+            'success': True, 
+            'message': 'Ítem agregado correctamente', 
+            'ticket': tickets_data['tickets'][table_number]
+        })
+    except Exception as e:
+        logger.error(f"Error al agregar ítem al ticket: {str(e)}")
+        return jsonify({'success': False, 'message': f'Error: {str(e)}'})
 
 @app.route('/ticket/<table_number>/remove_item', methods=['POST'])
 def remove_item_from_ticket(table_number):

@@ -2,8 +2,90 @@
     "tickets": {
         "3": {
             "table": "3",
-            "items": [],
-            "total": 0
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Hamburguesas",
+                    "price": 100,
+                    "quantity": 1
+                },
+                {
+                    "id": 4,
+                    "name": "Pizzas",
+                    "price": 150,
+                    "quantity": 1
+                },
+                {
+                    "id": 3,
+                    "name": "Ensaladas",
+                    "price": 90,
+                    "quantity": 1
+                },
+                {
+                    "id": 3,
+                    "name": "Ensaladas",
+                    "price": 90,
+                    "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "name": "Papas (Var. C)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customization": {
+                        "variant": "C",
+                        "ingredients": [
+                            6,
+                            7,
+                            8,
+                            9
+                        ]
+                    },
+                    "ingredients": [
+                        6,
+                        7,
+                        8,
+                        9
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "Hamburguesas",
+                    "price": 100,
+                    "quantity": 1
+                },
+                {
+                    "id": 6,
+                    "name": "Coca Cola",
+                    "price": 110,
+                    "quantity": 1
+                },
+                {
+                    "id": 1,
+                    "name": "Hamburguesas",
+                    "price": 100,
+                    "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "name": "Papas",
+                    "price": 120,
+                    "quantity": 1
+                },
+                {
+                    "id": 1,
+                    "name": "Hamburguesas",
+                    "price": 100,
+                    "quantity": 1
+                },
+                {
+                    "id": 4,
+                    "name": "Pizzas",
+                    "price": 150,
+                    "quantity": 1
+                }
+            ],
+            "total": 1230
         },
         "2": {
             "table": "2",
@@ -13,14 +95,106 @@
                     "name": "Articulo 2",
                     "price": 120,
                     "quantity": 1
+                },
+                {
+                    "id": 1,
+                    "name": "Hamburguesas",
+                    "price": 100,
+                    "quantity": 1
                 }
             ],
-            "total": 120
+            "total": 220
         },
         "4": {
             "table": "4",
             "items": [],
             "total": 0
+        },
+        "1": {
+            "table": "1",
+            "items": [
+                {
+                    "customization": {
+                        "ingredients": [
+                            1,
+                            2,
+                            3,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9
+                        ],
+                        "variant": "B"
+                    },
+                    "id": 1,
+                    "ingredients": [
+                        1,
+                        2,
+                        3,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9
+                    ],
+                    "name": "Hamburguesas (Var. B)",
+                    "price": 100,
+                    "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "name": "Papas",
+                    "price": 120,
+                    "quantity": 1
+                },
+                {
+                    "id": 4,
+                    "name": "Pizzas",
+                    "price": 150,
+                    "quantity": 1
+                },
+                {
+                    "id": 6,
+                    "name": "Coca Cola",
+                    "price": 110,
+                    "quantity": 1
+                }
+            ],
+            "total": 480
+        },
+        "6": {
+            "table": "6",
+            "items": [
+                {
+                    "customization": {
+                        "ingredients": [
+                            1,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9
+                        ],
+                        "variant": "C"
+                    },
+                    "id": 2,
+                    "ingredients": [
+                        1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9
+                    ],
+                    "name": "Papas (Var. C)",
+                    "price": 120,
+                    "quantity": 1
+                }
+            ],
+            "total": 120
         }
     }
 }

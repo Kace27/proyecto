@@ -33,6 +33,11 @@ El sistema está diseñado para la gestión de operaciones en un restaurante, pe
    - Adición y eliminación de productos al ticket
    - Cálculo de totales
    - Gestión del estado del ticket
+   - **Personalización de artículos**:
+     - Selección de variantes (A, B, C) para cada artículo
+     - Activación/desactivación de ingredientes específicos
+     - Visualización de ingredientes con potencial alérgeno
+     - Interfaz modal intuitiva para la personalización
 
 4. **Gestión del Menú**
    - Categorización de productos
@@ -58,6 +63,11 @@ El sistema está diseñado para la gestión de operaciones en un restaurante, pe
 - Organización del menú por categorías
 - Cálculo automático de totales
 - Gestión del estado del ticket (en proceso, completado, etc.)
+- **Personalización de artículos**:
+  - Selección de variantes (A, B, C) para cada artículo
+  - Activación/desactivación de ingredientes específicos
+  - Visualización de ingredientes con potencial alérgeno
+  - Interfaz modal intuitiva para la personalización
 
 ### Módulo de Administración (Backend)
 - Gestión de empleados (alta, baja, modificación)
@@ -67,7 +77,7 @@ El sistema está diseñado para la gestión de operaciones en un restaurante, pe
 ## Almacenamiento de Datos
 El sistema utiliza archivos JSON como mecanismo de persistencia:
 - `employees.json`: Almacena información de empleados (ID, PIN, nombre, rol)
-- `tickets.json`: Almacena los tickets/órdenes por mesa
+- `tickets.json`: Almacena los tickets/órdenes por mesa, **incluyendo información de personalización de artículos**
 - `menu.json`: Almacena las categorías y productos del menú
 
 ## Interfaz de Usuario
@@ -121,10 +131,16 @@ El sistema utiliza archivos JSON como mecanismo de persistencia:
 3. **Ticket**:
    - Atributos: mesa asociada, items, total, estado
    - Operaciones: añadir/eliminar items, calcular total
+   - **Extensiones para personalización**: almacena variantes e ingredientes seleccionados para cada artículo
 
 4. **Item de Menú**:
    - Atributos: id, nombre, precio, imagen, categoría
    - Operaciones: añadir a ticket
+   - **Personalización**: variantes disponibles, ingredientes configurables
+
+5. **Personalización de Artículo**:
+   - Atributos: variante seleccionada, lista de ingredientes activos/inactivos
+   - Operaciones: activar/desactivar ingredientes, seleccionar variante
 
 #### Métodos Principales del Backend:
 
@@ -167,6 +183,11 @@ El sistema utiliza archivos JSON como mecanismo de persistencia:
    - JS: Redirige a `ticket.html` con número de mesa
    - Backend: `get_ticket()` obtiene o crea ticket para la mesa
    - Usuario: Interactúa con interfaz para añadir/eliminar items
+   - **Personalización de artículos**:
+     - Usuario hace clic en "+" para agregar un artículo
+     - Se muestra modal de personalización con variantes e ingredientes
+     - Usuario selecciona variante y activa/desactiva ingredientes 
+     - Al guardar, el artículo personalizado se añade al ticket
    - Backend: Actualiza ticket mediante `add_item_to_ticket()` y `remove_item_from_ticket()`
 
 ### Patrones de Diseño Observados
