@@ -2,84 +2,59 @@
     "categories": [
         {
             "id": 1,
-            "name": "Comidas",
+            "name": "Categoria 1",
             "items": [
                 {
                     "id": 1,
-                    "name": "Hamburguesas",
+                    "name": "Articulo 1",
                     "price": 100,
                     "image": "https://placehold.co/122x84"
                 },
                 {
                     "id": 2,
-                    "name": "Papas",
+                    "name": "Articulo 2",
                     "price": 120,
                     "image": "https://placehold.co/122x84"
                 },
                 {
                     "id": 3,
-                    "name": "Ensaladas",
+                    "name": "Articulo 3",
                     "price": 90,
                     "image": "https://placehold.co/122x84"
                 },
                 {
                     "id": 4,
-                    "name": "Pizzas",
-                    "price": 150,
-                    "image": "https://placehold.co/122x84"
-                },
-                {
-                    "id": 4,
-                    "name": "Pizzas",
-                    "price": 150,
-                    "image": "https://placehold.co/122x84"
-                },
-                {
-                    "id": 4,
-                    "name": "Pizzas",
-                    "price": 150,
-                    "image": "https://placehold.co/122x84"
-                },
-                {
-                    "id": 4,
-                    "name": "Pizzas",
-                    "price": 150,
-                    "image": "https://placehold.co/122x84"
-                },
-                {
-                    "id": 4,
-                    "name": "Pizzas",
+                    "name": "Articulo 4",
                     "price": 150,
                     "image": "https://placehold.co/122x84"
                 }
-                
             ]
         },
         {
             "id": 2,
-            "name": "Bebidas",
+            "name": "Categoria 2",
             "items": [
                 {
                     "id": 5,
-                    "name": "Agua",
+                    "name": "Articulo 5",
                     "price": 80,
                     "image": "https://placehold.co/122x84"
                 },
                 {
                     "id": 6,
-                    "name": "Coca Cola",
+                    "name": "Articulo 6",
                     "price": 110,
                     "image": "https://placehold.co/122x84"
                 },
                 {
                     "id": 7,
-                    "name": "Cerveza",
+                    "name": "Articulo 7",
                     "price": 130,
                     "image": "https://placehold.co/122x84"
                 },
                 {
                     "id": 8,
-                    "name": "Vino",
+                    "name": "Articulo 8",
                     "price": 95,
                     "image": "https://placehold.co/122x84"
                 }

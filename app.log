@@ -1,0 +1,4 @@
+2025-04-09 12:12:19,821 - __main__ - INFO - Iniciando servidor Flask...
+2025-04-09 12:12:19,822 - __main__ - INFO - Base de datos JSON inicializada con datos de ejemplo.
+2025-04-09 12:12:19,822 - __main__ - INFO - Menú JSON inicializado con datos de ejemplo.
+2025-04-09 12:12:19,822 - __main__ - INFO - Tickets JSON inicializado.

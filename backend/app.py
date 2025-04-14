@@ -387,6 +387,21 @@ def remove_item_from_ticket(table_number):
     save_tickets(tickets_data)
     return jsonify({'success': True, 'ticket': tickets_data["tickets"][table_number]})
 
+@app.route('/tickets/active', methods=['GET'])
+def get_active_tables():
+    """Obtiene todas las mesas con tickets activos"""
+    tickets_data = load_tickets()
+    
+    # Return only the table numbers with active tickets
+    active_tables = {}
+    
+    for table_number, ticket in tickets_data["tickets"].items():
+        # A table is active if it has items in its ticket
+        if ticket["items"] and len(ticket["items"]) > 0:
+            active_tables[table_number] = True
+    
+    return jsonify(active_tables)
+
 if __name__ == '__main__':
     logger.info("Iniciando servidor Flask...")
     init_db()  # Initialize database on startup

@@ -16,7 +16,7 @@
         
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 400px;
             margin: 0 auto;
             padding: 20px;
             position: relative;
@@ -32,45 +32,91 @@
             margin-bottom: 40px;
         }
         
-        .tables-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        .tables-layout {
+            position: relative;
+            height: 500px;
+            display: flex;
             justify-content: center;
+            width: 100%;
+        }
+        
+        .table {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
         
         .table-large {
             width: 102px;
             height: 154px;
             background-color: #98A8B8;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s;
         }
         
         .table-small {
             width: 60px;
             height: 60px;
             background-color: #98A8B8;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s;
         }
         
         .table-active {
             background-color: #F58D1D;
+        }
+        
+        .table-available {
+            background-color: #4CAF50;
+        }
+        
+        /* Table positions - adjusted for center alignment */
+        #table-1 {
+            left: calc(50% - 150px);
+            top: 90px;
+        }
+        
+        #table-3 {
+            left: calc(50% - 30px);
+            top: 90px;
+        }
+        
+        #table-2 {
+            left: calc(50% - 150px);
+            top: 280px;
+        }
+        
+        #table-4 {
+            left: calc(50% - 30px);
+            top: 280px;
+        }
+        
+        #table-5 {
+            left: calc(50% + 90px);
+            top: 80px;
+        }
+        
+        #table-6 {
+            left: calc(50% + 90px);
+            top: 156px;
+        }
+        
+        #table-7 {
+            left: calc(50% + 90px);
+            top: 232px;
+        }
+        
+        #table-8 {
+            left: calc(50% + 90px);
+            top: 308px;
+        }
+        
+        #table-9 {
+            left: calc(50% + 90px);
+            top: 384px;
         }
         
         .employee-info {
@@ -100,33 +146,28 @@
             <button class="logout-btn" id="logout-btn">Cerrar Sesión</button>
         </div>
         
-        <h1 class="title">Selecciona la mesa</h1>
+        <h1 class="title">Selecciona La Mesa</h1>
         
-        <div class="tables-grid">
-            <div class="table-large table-active" data-table="1">1</div>
-            <div class="table-large" data-table="3">3</div>
-            <div class="table-small" data-table="5">5</div>
+        <div class="tables-layout">
+            <div id="table-1" class="table table-large" data-table="1">1</div>
+            <div id="table-3" class="table table-large" data-table="3">3</div>
+            <div id="table-5" class="table table-small" data-table="5">5</div>
             
-            <div class="table-large" data-table="2">2</div>
-            <div class="table-large" data-table="4">4</div>
-            <div class="table-small" data-table="6">6</div>
+            <div id="table-2" class="table table-large" data-table="2">2</div>
+            <div id="table-4" class="table table-large" data-table="4">4</div>
+            <div id="table-6" class="table table-small" data-table="6">6</div>
             
-            <div class="table-placeholder"></div>
-            <div class="table-placeholder"></div>
-            <div class="table-small" data-table="7">7</div>
-            
-            <div class="table-placeholder"></div>
-            <div class="table-placeholder"></div>
-            <div class="table-small" data-table="8">8</div>
-            
-            <div class="table-placeholder"></div>
-            <div class="table-placeholder"></div>
-            <div class="table-small" data-table="9">9</div>
+            <div id="table-7" class="table table-small" data-table="7">7</div>
+            <div id="table-8" class="table table-small" data-table="8">8</div>
+            <div id="table-9" class="table table-small" data-table="9">9</div>
         </div>
     </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // API Base URL
+            const API_BASE_URL = 'http://localhost:5002';
+            
             // Retrieve employee data from localStorage
             const employeeData = JSON.parse(localStorage.getItem('employeeData'));
             
@@ -146,15 +187,20 @@
                 window.location.href = 'index.html';
             });
             
+            // Get all tables
+            const tables = document.querySelectorAll('.table');
+            
+            // Fetch active tables and update colors
+            fetchActiveTablesAndUpdateUI();
+            
+            // Set interval to refresh table status every 10 seconds
+            setInterval(fetchActiveTablesAndUpdateUI, 10000);
+            
             // Table selection
-            const tables = document.querySelectorAll('[data-table]');
             tables.forEach(table => {
                 table.addEventListener('click', function() {
-                    // Remove active class from all tables
-                    tables.forEach(t => t.classList.remove('table-active'));
-                    
-                    // Add active class to clicked table
-                    this.classList.add('table-active');
+                    // On click, we just store the selected table and redirect
+                    // (no longer changing classes here as that's handled by fetchActiveTablesAndUpdateUI)
                     
                     // Store selected table
                     const tableNumber = this.getAttribute('data-table');
@@ -164,6 +210,37 @@
                     handleMesaClick(tableNumber);
                 });
             });
+            
+            // Function to fetch active tables and update UI
+            function fetchActiveTablesAndUpdateUI() {
+                fetch(`${API_BASE_URL}/tickets/active`)
+                    .then(response => response.json())
+                    .then(activeTables => {
+                        // Update table colors based on active status
+                        tables.forEach(table => {
+                            const tableNumber = table.getAttribute('data-table');
+                            
+                            // Remove all status classes first
+                            table.classList.remove('table-active', 'table-available');
+                            
+                            // If table has active ticket, set orange color
+                            if (activeTables[tableNumber]) {
+                                table.classList.add('table-active');
+                            } else {
+                                // If table is available, set green color
+                                table.classList.add('table-available');
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching active tables:', error);
+                        // Set all tables to available (green) if there's an error
+                        tables.forEach(table => {
+                            table.classList.remove('table-active');
+                            table.classList.add('table-available');
+                        });
+                    });
+            }
         });
 
         // Modificar la redirección al hacer clic en una mesa
