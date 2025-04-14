@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Artículo</title>
+    <style>
+        /* Estructura principal */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #FFFFFF;
+        }
+
+        .articulo-container {
+            position: relative;
+            width: 393px;
+            height: 800px;
+            margin: 0 auto;
+            background: #FFFFFF;
+        }
+
+        /* Encabezado */
+        .header-image {
+            position: absolute;
+            width: 327px;
+            height: 184px;
+            left: 35px;
+            top: 92px;
+            background: #98A8B8;
+            border-radius: 32px;
+        }
+
+        .save-btn {
+            position: absolute;
+            width: 37px;
+            height: 37px;
+            left: 305px;
+            top: 219px;
+            background: #FFFFFF;
+            opacity: 0.2;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF;
+        }
+
+        /* Título del artículo */
+        .articulo-title {
+            position: absolute;
+            width: 94px;
+            height: 24px;
+            left: 32px;
+            top: 292px;
+            font-family: 'Sen';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            text-transform: capitalize;
+            color: #181C2E;
+        }
+
+        /* Variantes */
+        .variante-label {
+            position: absolute;
+            width: 73px;
+            height: 16px;
+            left: 35px;
+            top: 348px;
+            font-family: 'Sen';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #32343E;
+        }
+
+        .variante-container {
+            position: absolute;
+            width: 248px;
+            height: 100px;
+            left: 35px;
+            top: 306px;
+        }
+
+        .variante-option {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background: #F0F5FA;
+            border-radius: 110px;
+            transform: rotate(-90deg);
+        }
+
+        /* Ingredientes */
+        .ingredientes-label {
+            position: absolute;
+            width: 85px;
+            height: 16px;
+            left: 36px;
+            top: 408px;
+            font-family: 'Sen';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #32343E;
+        }
+
+        .ingredientes-container {
+            position: absolute;
+            width: 326px;
+            height: 208px;
+            left: 36px;
+            top: 443px;
+        }
+
+        .ingrediente {
+            position: relative;
+            width: 50px;
+            height: 73px;
+            float: left;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+
+        .ingrediente-icon {
+            width: 50px;
+            height: 50px;
+            background: #FFEBE4;
+            border-radius: 100px;
+            position: relative;
+        }
+
+        .ingrediente-name {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+            text-align: center;
+            text-transform: capitalize;
+            color: #747783;
+            margin-top: 5px;
+        }
+
+        /* Botón Guardar */
+        .save-button {
+            position: absolute;
+            width: 307px;
+            height: 62px;
+            left: 45px;
+            top: 646px;
+            background: #FF7622;
+            border-radius: 12px;
+            border: none;
+            color: #FFFFFF;
+            font-family: 'Sen';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="articulo-container">
+        <!-- Imagen del artículo -->
+        <div class="header-image"></div>
+        <button class="save-btn">+</button>
+        
+        <!-- Título -->
+        <h1 class="articulo-title" id="articulo-nombre">Artículo</h1>
+        
+        <!-- Variantes -->
+        <div class="variante-container">
+            <span class="variante-label">Variante:</span>
+            <!-- Opciones de variante irían aquí -->
+        </div>
+        
+        <!-- Ingredientes -->
+        <div class="ingredientes-label">Ingredientes</div>
+        <div class="ingredientes-container">
+            <!-- Lista de ingredientes iría aquí -->
+        </div>
+        
+        <!-- Botón Guardar -->
+        <button class="save-button" onclick="guardarArticulo()">Guardar</button>
+    </div>
+
+    <script>
+        // Obtener parámetros de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const idArticulo = urlParams.get('id');
+        
+        // Mapeo de IDs a nombres según menu.json
+        const nombresArticulos = {
+            '1': 'Hamburguesas',
+            '2': 'Papas',
+            '3': 'Ensaladas',
+            '4': 'Pizzas',
+            '5': 'Agua',
+            '6': 'Coca Cola',
+            '7': 'Cerveza',
+            '8': 'Vino'
+        };
+        
+        // Mostrar nombre del artículo
+        document.getElementById('articulo-nombre').textContent = 
+            nombresArticulos[idArticulo] || 'Artículo';
+        
+        function guardarArticulo() {
+            alert('Artículo guardado en el pedido');
+            window.location.href = 'menu.html';
+        }
+    </script>
+</body>
+</html>

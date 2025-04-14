@@ -175,8 +175,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         } else {
                             // PIN is invalid
-                            messageArea.textContent = data.message || 'Error al verificar el PIN';
+                            //messageArea.textContent = data.message || 'Error al verificar el PIN';
+                            messageArea.textContent = 'PIN incorrecto. Ingrese un PIN válido';
+                            messageArea.style.color = 'red';
                             clearPin();
+                            setTimeout(() => {
+                                messageArea.textContent = ''; // Clear message after 2 seconds
+                            }, 2000);
                         }
                     } catch (e) {
                         console.error("Error al parsear respuesta JSON:", e);

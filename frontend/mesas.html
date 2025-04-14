@@ -5,93 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selección de Mesas - Sistema de Restaurante</title>
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: 'Sen', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: white;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-        }
-        
-        .title {
-            text-align: center;
-            color: #181C2E;
-            font-size: 20px;
-            font-weight: 700;
-            text-transform: capitalize;
-            margin-top: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .tables-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            justify-content: center;
-        }
-        
-        .table-large {
-            width: 102px;
-            height: 154px;
-            background-color: #98A8B8;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .table-small {
-            width: 60px;
-            height: 60px;
-            background-color: #98A8B8;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .table-active {
-            background-color: #F58D1D;
-        }
-        
-        .employee-info {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            text-align: right;
-            color: #181C2E;
-        }
-        
-        .logout-btn {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="mesas.css">        
 </head>
+
 <body>
     <div class="container">
         <div class="employee-info">
@@ -111,17 +27,11 @@
             <div class="table-large" data-table="4">4</div>
             <div class="table-small" data-table="6">6</div>
             
-            <div class="table-placeholder"></div>
-            <div class="table-placeholder"></div>
-            <div class="table-small" data-table="7">7</div>
+            <div style="grid-column: 3;" class="table-small" data-table="7">7</div>
+
+            <div style="grid-column: 3;" class="table-small" data-table="8">8</div>
             
-            <div class="table-placeholder"></div>
-            <div class="table-placeholder"></div>
-            <div class="table-small" data-table="8">8</div>
-            
-            <div class="table-placeholder"></div>
-            <div class="table-placeholder"></div>
-            <div class="table-small" data-table="9">9</div>
+            <div style="grid-column: 3;" class="table-small" data-table="9">9</div>
         </div>
     </div>
     
@@ -161,7 +71,7 @@
                     localStorage.setItem('selectedTable', tableNumber);
                     
                     // Redirect to the ticket page for this table
-                    window.location.href = `ticket.html?table=${tableNumber}`;
+                    window.location.href = `menu.html?table=${tableNumber}`;
                 });
             });
         });

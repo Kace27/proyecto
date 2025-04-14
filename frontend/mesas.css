@@ -1,0 +1,84 @@
+body {
+    font-family: 'Sen', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    color: #181C2E;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.tables-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.table-large {
+    width: 102px;
+    height: 154px;
+    background-color: #98A8B8;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.table-small {
+    width: 60px;
+    height: 60px;
+    background-color: #98A8B8;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.table-active {
+    background-color: #98A8B8;
+}
+
+.employee-info {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    text-align: right;
+    color: #181C2E;
+}
+
+.logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+}

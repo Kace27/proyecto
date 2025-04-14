@@ -10,7 +10,7 @@
             "id": 2,
             "pin": "5678",
             "name": "Ana García",
-            "role": "Gerente"
+            "role": "Mesero"
         },
         {
             "id": 3,
@@ -22,13 +22,13 @@
             "id": 4,
             "pin": "4321",
             "name": "María López",
-            "role": "Administrador"
+            "role": "Mesero"
         },
         {
             "id": 5,
             "pin": "8765",
             "name": "Pedro Sánchez",
-            "role": "Cocina"
+            "role": "Mesero"
         }
     ]
 }

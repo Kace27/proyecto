@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú del Restaurante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&amp;display=swap" rel="stylesheet">
+    <style>
+        /* Menu Angel */
+        .menu-container {
+            position: relative;
+            width: 393px;
+            min-height: 1500px; /* Cambiado a min-height para contenido dinámico */
+            margin: 0 auto;
+            overflow-y: auto;
+            background: #FFFFFF;
+            padding-bottom: 50px; /* Espacio extra al final */
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: #FF0000;
+            color: #000000;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Sen';
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Text */
+        .menu-title {
+            width: 100%;
+            text-align: center;
+            font-family: 'Sen';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            text-transform: capitalize;
+            color: #181C2E;
+            margin: 23px 0;
+            padding: 0 24px;
+        }
+
+        /* Boneless */
+        .boneless-title {
+            position: relative;
+            width: 83px;
+            height: 24px;
+            margin: 30px 0 10px 24px;
+            font-family: 'Sen';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            text-transform: capitalize;
+            color: #181C2E;
+        }
+
+        /* Pizza */
+        .pizza-title {
+            position: relative;
+            width: 54px;
+            height: 24px;
+            margin: 30px 0 10px 24px;
+            font-family: 'Sen';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            text-transform: capitalize;
+            color: #181C2E;
+        }
+
+        /* Bebidas */
+        .bebidas-title {
+            position: relative;
+            width: 77px;
+            height: 24px;
+            margin: 30px 0 10px 24px;
+            font-family: 'Sen';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            text-transform: capitalize;
+            color: #181C2E;
+        }
+
+        /* Hamburguesas */
+        .category-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 5px;
+            gap: 10px;
+            position: relative;
+            width: 345px;
+            height: 164px;
+            margin: 30px auto;
+            overflow-x: scroll;
+            background: #D9D9D9;
+        }
+
+        /* Product */
+        .product-card {
+            width: 153px;
+            height: 154px;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            position: relative;
+            background: #E7E7E7;
+            box-shadow: 12px 12px 30px rgba(150, 150, 154, 0.15);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            position: absolute;
+            width: 122px;
+            height: 84px;
+            left: 22px;
+            top: 5px;
+            background: url(hamburger_41493.png);
+            border-radius: 15px;
+        }
+
+        .product-info {
+            position: absolute;
+            width: 68px;
+            height: 18px;
+            left: 17px;
+            top: 104px;
+            font-family: 'Sen';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 18px;
+            text-transform: capitalize;
+            color: #32343E;
+        }
+
+        /* Add button */
+        .add-button {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 116px;
+            top: 116px;
+            background: #F58D1D;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        /* Bebidas */
+        .bebidas-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 5px;
+            gap: 10px;
+            position: relative;
+            width: 345px;
+            height: 164px;
+            margin: 50px auto 100px;
+            overflow-x: scroll;
+            background: #D9D9D9;
+        }
+    </style>
+    <style>
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .session-info {
+            text-align: center;
+            margin-top: 10px;
+            font-family: 'Sen';
+            font-size: 14px;
+        }
+        
+        #table-number {
+            font-weight: bold;
+            color: #F58D1D;
+        }
+        
+        #waiter-name {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="header-info">
+            <h1 class="menu-title">MENU ZOMBIE</h1>
+            <div class="session-info">
+                <div id="table-number">Mesa: </div>
+                <div id="waiter-name"></div>
+                <a href="index.html" class="logout-btn">Cerrar sesión</a>
+            </div>
+        </div>
+
+        <div id="menu-content">
+            <!-- El menú se cargará dinámicamente aquí -->
+        </div>
+
+        <script>
+            let cart = [];
+            
+            function addToCart(id, name, price) {
+                cart.push({id, name, price});
+                updateCart();
+            }
+            
+            function updateCart() {
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+
+            // Cargar menú desde JSON
+            async function loadMenu() {
+                const menuContent = document.getElementById('menu-content');
+                menuContent.innerHTML = '<p>Cargando menú...</p>';
+                
+                try {
+                    // Cargar menú desde backend
+                    const response = await fetch('../backend/menu.json');
+                    const menuData = await response.json();
+                    renderMenu(menuData);
+                } catch {
+                    // Usar datos de ejemplo si hay error (sin mostrar mensaje)
+                    renderMenu({
+                        categories: [
+                            {
+                                id: 1,
+                                name: "Comidas",
+                                items: [
+                                    {id: 1, name: "Hamburguesas", price: 100, image: "https://placehold.co/122x84"},
+                                    {id: 2, name: "Papas", price: 120, image: "https://placehold.co/122x84"},
+                                    {id: 3, name: "Ensaladas", price: 90, image: "https://placehold.co/122x84"},
+                                    {id: 4, name: "Pizzas", price: 150, image: "https://placehold.co/122x84"}
+                                ]
+                            },
+                            {
+                                id: 2,
+                                name: "Bebidas", 
+                                items: [
+                                    {id: 5, name: "Agua", price: 80, image: "https://placehold.co/122x84"},
+                                    {id: 6, name: "Coca Cola", price: 110, image: "https://placehold.co/122x84"},
+                                    {id: 7, name: "Cerveza", price: 130, image: "https://placehold.co/122x84"},
+                                    {id: 8, name: "Vino", price: 95, image: "https://placehold.co/122x84"}
+                                ]
+                            }
+                        ]
+                    });
+                }
+            }
+
+            function renderMenu(menuData) {
+                const menuContent = document.getElementById('menu-content');
+                
+                menuData.categories.forEach(category => {
+                    // Crear contenedor de categoría
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.className = 'category-section';
+                    
+                    // Crear título de categoría
+                    const title = document.createElement('h2');
+                    title.className = 'category-title';
+                    title.textContent = category.name;
+                    categoryDiv.appendChild(title);
+                    
+                    // Crear contenedor de productos
+                    const container = document.createElement('div');
+                    container.className = category.name === 'Bebidas' ? 'bebidas-container' : 'category-container';
+                    
+                    // Agregar productos
+                    category.items.forEach(item => {
+                        const productCard = document.createElement('div');
+                        productCard.className = 'product-card';
+                        productCard.onclick = () => addToCart(item.id, item.name, item.price);
+                        
+                        productCard.innerHTML = `
+                            <div class="product-image" style="background: url('${item.image}')"></div>
+                            <div class="product-info">${item.name}<br>$${item.price} MXN</div>
+                            <a href="articulo.html?id=${item.id}" class="add-button">+</a>
+                        `;
+                        
+                        container.appendChild(productCard);
+                    });
+                    
+                    categoryDiv.appendChild(container);
+                    menuContent.appendChild(categoryDiv);
+                });
+            }
+
+            // Mostrar información de mesa y mesero
+            function showSessionInfo() {
+                // Obtener número de mesa de la URL o localStorage
+                const urlParams = new URLSearchParams(window.location.search);
+                const tableNumber = urlParams.get('table') || localStorage.getItem('selectedTable');
+                
+                if (tableNumber) {
+                    document.getElementById('table-number').textContent += tableNumber;
+                    localStorage.setItem('selectedTable', tableNumber);
+                }
+                
+                // Mostrar nombre del mesero
+                const employeeData = JSON.parse(localStorage.getItem('employeeData'));
+                if (employeeData) {
+                    document.getElementById('waiter-name').textContent = employeeData.name;
+                }
+            }
+
+            // Cargar el menú y mostrar información cuando la página esté lista
+            document.addEventListener('DOMContentLoaded', function() {
+                showSessionInfo();
+                loadMenu();
+            });
+        </script>
+    </div>
+</body>
+</html>

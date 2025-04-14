@@ -112,7 +112,12 @@ body {
     background: #c0392b;
 }
 
-.submit-btn {
+/* Mueve el botón de 0 y el de clear un poco a la derecha*/
+.keypad-row:last-child {
+    margin-left: 35px;
+}       
+
+.submit-btn{
     background: #2ecc71;
 }
 
