@@ -303,6 +303,29 @@
                 }
             ],
             "total": 240
+        },
+        "2": {
+            "items": [
+                {
+                    "id": 2,
+                    "name": "Papas (Var. B) (Sin chicken)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": [
+                            "chicken"
+                        ]
+                    },
+                    "excludedIngredients": [
+                        "chicken"
+                    ]
+                }
+            ],
+            "total": 120,
+            "ticket_number": "0-0007",
+            "timestamp": "2025-04-16 16:12:37",
+            "status": "pending"
         }
     }
 }

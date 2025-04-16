@@ -274,3 +274,134 @@
 2025-04-16 15:54:13,607 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 15:54:13] "GET /tickets/active HTTP/1.1" 200 -
 2025-04-16 15:54:23,607 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 15:54:23] "GET /tickets/active HTTP/1.1" 200 -
 2025-04-16 15:54:29,315 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 15:54:29] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:04:57,412 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-16 16:04:57,412 - werkzeug - WARNING -  * Debugger is active!
+2025-04-16 16:04:57,419 - werkzeug - INFO -  * Debugger PIN: 536-437-644
+2025-04-16 16:04:58,083 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:04:58] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-16 16:05:10,529 - werkzeug - INFO -  * Detected change in '/Users/kace/Documents/Ingenieria/proyecto/backend/app.py', reloading
+2025-04-16 16:05:10,826 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-16 16:05:10,826 - werkzeug - WARNING -  * Debugger is active!
+2025-04-16 16:05:10,833 - werkzeug - INFO -  * Debugger PIN: 536-437-644
+2025-04-16 16:05:11,452 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:05:11] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-16 16:05:18,941 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:05:18,941 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:05:18,941 - __main__ - INFO - Categoría: Comidas, Items: 8
+2025-04-16 16:05:18,941 - __main__ - INFO - Categoría: Bebidas, Items: 4
+2025-04-16 16:05:18,942 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:05:18] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:05:21,941 - werkzeug - INFO -  * Detected change in '/Users/kace/Documents/Ingenieria/proyecto/backend/app.py', reloading
+2025-04-16 16:05:22,224 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-16 16:05:22,224 - werkzeug - WARNING -  * Debugger is active!
+2025-04-16 16:05:22,231 - werkzeug - INFO -  * Debugger PIN: 536-437-644
+2025-04-16 16:05:23,356 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:05:23] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-16 16:05:55,518 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:05:55,523 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:05:55,523 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:05:55,523 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:05:55,524 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:05:55] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:06,255 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:06,256 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:06,256 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:06,256 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:06,256 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:06] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:07,348 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:07,349 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:07,349 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:07,349 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:07,349 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:07] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:08,018 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:08,019 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:08,019 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:08,019 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:08,020 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:08] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:08,630 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:08,631 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:08,631 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:08,631 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:08,631 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:08] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:09,166 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:09,166 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:09,166 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:09,166 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:09,166 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:09] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:09,588 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:09,590 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:09,590 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:09,590 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:09,591 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:09] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:09,742 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:09,742 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:09,742 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:09,742 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:09,742 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:09] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:09,936 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:09,936 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:09,936 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:09,937 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:09,939 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:09] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:10,240 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:10,241 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:10,241 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:10,241 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:10,242 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:10] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:10,338 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:10,338 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:10,338 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:10,338 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:10,339 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:10] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:17,626 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:17,627 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:17,627 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:17,627 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:17,627 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:17] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:18,725 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:18,726 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:18,726 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:18,726 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:18,726 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:18] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:19,283 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:19,283 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:19,283 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:19,284 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:19,284 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:19] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:19,781 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:19,781 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:19,781 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:19,781 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:19,783 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:19] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:20,447 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:20,449 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:20,449 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:20,449 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:20,450 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:20] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:20,818 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:20,818 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:20,818 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:20,818 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:20,819 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:06:20] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:06:22,851 - werkzeug - INFO -  * Detected change in '/Users/kace/Documents/Ingenieria/proyecto/backend/app.py', reloading
+2025-04-16 16:06:23,277 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-16 16:06:23,277 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:23,277 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:23,277 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:23,277 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:23,277 - __main__ - INFO - Menú cargado correctamente con 2 categorías
+2025-04-16 16:06:31,927 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-16 16:06:31,927 - __main__ - INFO - Intentando cargar menú desde: /Users/kace/Documents/Ingenieria/proyecto/backend/menu.json
+2025-04-16 16:06:31,928 - __main__ - INFO - Menú cargado exitosamente. Categorías: 2
+2025-04-16 16:06:31,928 - __main__ - INFO - Categoría: Categoria 1, Items: 4
+2025-04-16 16:06:31,928 - __main__ - INFO - Categoría: Categoria 2, Items: 4
+2025-04-16 16:06:31,928 - __main__ - INFO - Menú cargado correctamente con 2 categorías
+2025-04-16 16:07:20,630 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-16 16:07:20,630 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-16 16:07:20,630 - werkzeug - INFO -  * Running on http://172.18.57.72:5002/ (Press CTRL+C to quit)
+2025-04-16 16:07:20,631 - werkzeug - INFO -  * Restarting with stat
+2025-04-16 16:07:20,802 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-16 16:07:20,802 - werkzeug - WARNING -  * Debugger is active!
+2025-04-16 16:07:20,810 - werkzeug - INFO -  * Debugger PIN: 536-437-644
+2025-04-16 16:07:23,185 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:07:23] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:07:47,688 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:07:47] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:07:49,901 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:07:49] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:07:51,948 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:07:51] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:09:10,646 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:09:10] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:09:11,751 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:09:11] "GET /menu HTTP/1.1" 200 -

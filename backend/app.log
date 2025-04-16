@@ -8796,3 +8796,32 @@
 2025-04-16 15:41:11,525 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 15:41:11] "GET /tickets/kitchen HTTP/1.1" 200 -
 2025-04-16 15:41:21,093 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
 2025-04-16 15:52:23,121 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-16 16:09:19,589 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-16 16:09:19,590 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-16 16:09:19,590 - werkzeug - INFO -  * Running on http://172.18.57.72:5002/ (Press CTRL+C to quit)
+2025-04-16 16:09:19,590 - werkzeug - INFO -  * Restarting with stat
+2025-04-16 16:09:19,766 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-16 16:09:19,767 - werkzeug - WARNING -  * Debugger is active!
+2025-04-16 16:09:19,774 - werkzeug - INFO -  * Debugger PIN: 536-437-644
+2025-04-16 16:09:22,634 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:09:22] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:09:26,626 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:09:26] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:09:53,060 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:09:53] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:09:55,169 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:09:55] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:09:56,184 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:09:56] "GET /ticket/3 HTTP/1.1" 200 -
+2025-04-16 16:09:59,659 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:09:59] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:12:03,930 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:03] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-16 16:12:16,948 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:16] "GET /ticket/3 HTTP/1.1" 200 -
+2025-04-16 16:12:18,267 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:18] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:12:19,117 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:19] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:12:21,013 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:21] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:12:26,754 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:26] "GET /ticket/2 HTTP/1.1" 200 -
+2025-04-16 16:12:28,873 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:28] "GET /menu HTTP/1.1" 200 -
+2025-04-16 16:12:32,903 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:32] "OPTIONS /ticket/2/add_item HTTP/1.1" 200 -
+2025-04-16 16:12:32,910 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:32] "POST /ticket/2/add_item HTTP/1.1" 200 -
+2025-04-16 16:12:35,429 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:35] "GET /ticket/2 HTTP/1.1" 200 -
+2025-04-16 16:12:37,787 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:37] "OPTIONS /ticket/2/confirm HTTP/1.1" 200 -
+2025-04-16 16:12:37,792 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:37] "POST /ticket/2/confirm HTTP/1.1" 200 -
+2025-04-16 16:12:43,162 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:43] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:12:53,171 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:53] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:13:03,157 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:13:03] "GET /tickets/active HTTP/1.1" 200 -
