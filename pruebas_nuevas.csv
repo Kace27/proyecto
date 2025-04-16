@@ -1,0 +1,20 @@
+Componente,Subcomponente,Clase/Módulo,Método/Función,Descripción,Entrada,Salida esperada,Resultado,Comentarios
+
+Sistema de Autenticación,Frontend,Interfaz de Login,addDigit(),Verificar que el PIN se envíe automáticamente cuando se completan los 4 dígitos,Entrada del cuarto dígito del PIN,Envío automático del PIN sin presionar OK,Pendiente,Función modificada para eliminación del botón OK
+Sistema de Autenticación,Frontend,Interfaz de Login,modificarIndex(),Eliminar el botón OK de la interfaz,Manipulación del DOM,Interfaz sin el botón OK manteniendo la funcionalidad,Pendiente,Cambio en la estructura HTML
+
+Gestión de Mesas,Frontend,Visualizador de Mesas,fetchActiveTablesAndUpdateUI(),Actualizar la visualización de mesas con los colores correctos,Datos de mesas activas,Mesas disponibles (verdes) y ocupadas (naranjas),Pendiente,Implementación de estados visuales por colores
+Gestión de Mesas,Frontend,Visualizador de Mesas,ajustarLayoutMesas(),Ajustar la disposición de mesas según el diseño correcto,Modificación del layout,Disposición correcta de mesas en la interfaz,Pendiente,Corrección de posicionamiento en CSS
+
+Gestión del Menú,Backend,Servicio de Menú,cargarMenuDesdeBD(),Cargar los datos del menú desde la base de datos,Ninguna,Estructura de datos completa con información del menú,Pendiente,Migración de JSON a base de datos SQL
+Gestión del Menú,Frontend,Visualizador de Menú,renderizarArticulos(),Mostrar artículos del menú con el diseño actualizado,Datos del menú desde el backend,Interfaz de artículos según el diseño requerido,Pendiente,Ajustes en los componentes visuales del menú
+Gestión del Menú,Frontend,Visualizador de Menú,cargarImagenesArticulos(),Cargar y mostrar imágenes para cada artículo del menú,URLs de imágenes,Imágenes correctamente mostradas para cada artículo,Pendiente,Mejora visual con imágenes reales de comida
+Gestión del Menú,Frontend,Visualizador de Menú,mostrarInformacionArticulo(),Mostrar información detallada de cada artículo del menú,Datos de artículos,Información completa y descriptiva del artículo,Pendiente,Mejora en la presentación de información
+
+Personalización de Artículos,Frontend,Modal de Personalización,implementarModalFigma(),Implementar el modal según el diseño de Figma,Datos de artículo seleccionado,Modal con diseño exacto al mostrado en Figma,Pendiente,Actualización completa de la interfaz del modal
+Personalización de Artículos,Frontend,Modal de Personalización,mostrarVariantes(),Mostrar y permitir seleccionar variantes del producto,Datos de variantes disponibles,Opciones de variantes seleccionables en el modal,Pendiente,Funcionalidad para personalización del producto
+Personalización de Artículos,Frontend,Modal de Personalización,seleccionarIngredientes(),Permitir seleccionar o excluir ingredientes,Lista de ingredientes disponibles,Selección correcta de ingredientes para el artículo,Pendiente,Personalización avanzada del producto
+
+Integración,Frontend,Sistema Completo,navegacionEntrePantallas(),Verificar transición correcta entre todas las pantallas,Acciones de navegación,Flujo completo desde login hasta ticket final,Pendiente,Asegurar coherencia en toda la experiencia de usuario
+Integración,Backend,API,verificarEndpoints(),Comprobar que todos los endpoints funcionan con los nuevos componentes,Solicitudes a todos los endpoints,Respuestas correctas para todos los servicios,Pendiente,Asegurar compatibilidad de backend con nuevo frontend
+Integración,Sistema,Completo,pruebasE2E(),Realizar pruebas de extremo a extremo del sistema completo,Flujo completo de operación,Funcionamiento correcto de todo el sistema integrado,Pendiente,Validación final de todas las mejoras implementadas 

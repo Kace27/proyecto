@@ -1,34 +1,41 @@
 Componente,Subcomponente,Clase/Módulo,Método/Función,Descripción,Entrada,Salida esperada,Resultado,Comentarios
 
-Sistema de Autenticación,Backend,Servicio de Autenticación,verify_pin(),Verifica el PIN ingresado por el empleado,PIN de 4 dígitos,Booleano (true/false) e información del empleado si es válido,Éxito,Función crítica para el acceso al sistema
-Sistema de Autenticación,Frontend,Interfaz de Login,submitPin(),Envía el PIN al backend y procesa la respuesta,PIN de 4 dígitos,Redirección a página de mesas o mensaje de error,Éxito,Validación visual con feedback inmediato
-Sistema de Autenticación,Frontend,Interfaz de Login,updatePinDisplay(),Actualiza la interfaz visual de los puntos de PIN,Entrada de dígitos,Actualización visual de los puntos de PIN,Éxito,Feedback visual al usuario
+Sistema de Autenticación,Backend,app.py,verify_pin(),Verifica el PIN ingresado por el empleado,PIN de 4 dígitos,Booleano (true/false) e información del empleado si es válido,Éxito,Función crítica para el acceso al sistema
+Sistema de Autenticación,Frontend,script.js,submitPin(),Envía el PIN al backend y procesa la respuesta,PIN de 4 dígitos,Redirección a página de mesas o mensaje de error,Éxito,Validación visual con feedback inmediato
+Sistema de Autenticación,Frontend,script.js,updatePinDisplay(),Actualiza la interfaz visual de los puntos de PIN,Entrada de dígitos,Actualización visual de los puntos de PIN,Éxito,Feedback visual al usuario
 
-Gestión de Mesas,Backend,Servicio de Mesas,get_tickets(),Obtiene todos los tickets para visualizar el estado de las mesas,Ninguna,Lista de tickets con información de mesa asociada,Éxito,Información necesaria para visualizar ocupación
-Gestión de Mesas,Frontend,Visualizador de Mesas,loadTableStatus(),Carga y muestra el estado actual de todas las mesas,Datos de tickets del backend,Representación visual de mesas ocupadas/libres,Éxito,Las mesas con tickets abiertos aparecen ocupadas
-Gestión de Mesas,Frontend,Visualizador de Mesas,tableClickHandler(),Maneja el evento de clic en una mesa,ID de la mesa seleccionada,Redirección a la página de ticket para esa mesa,Éxito,Navegación intuitiva a gestión de pedidos
+Gestión de Mesas,Backend,app.py,get_active_tables(),Obtiene todas las mesas con tickets activos,Ninguna,Objeto con mesas activas e inactivas,Éxito,Información necesaria para visualizar ocupación
+Gestión de Mesas,Frontend,mesas.html,fetchActiveTablesAndUpdateUI(),Carga y muestra el estado actual de todas las mesas,Datos de tickets del backend,Representación visual de mesas ocupadas/libres,Éxito,Las mesas con tickets abiertos aparecen ocupadas
+Gestión de Mesas,Frontend,mesas.html,handleMesaClick(),Maneja el evento de clic en una mesa,ID de la mesa seleccionada,Redirección a la página de menú para esa mesa,Éxito,Navegación intuitiva a gestión de menú
 
-Sistema de Tickets,Backend,Gestor de Tickets,get_ticket(),Obtiene el ticket asociado a una mesa específica,Número de mesa,Objeto ticket con items y total,Éxito,Crea un ticket nuevo si no existe
-Sistema de Tickets,Backend,Gestor de Tickets,add_item_to_ticket(),Añade un item al ticket de una mesa,ID de mesa e información del item,Ticket actualizado con el nuevo item,Éxito,Maneja cantidades y personalización
-Sistema de Tickets,Backend,Gestor de Tickets,remove_item_from_ticket(),Elimina un item del ticket,ID de mesa e información del item a eliminar,Ticket actualizado sin el item eliminado,Éxito,Actualiza el total automáticamente
-Sistema de Tickets,Frontend,Visualizador de Ticket,renderTicket(),Actualiza la vista del ticket con los items actuales,Datos del ticket,Vista actualizada del ticket,Éxito,Muestra items con cantidades y precios
-Sistema de Tickets,Frontend,Visualizador de Ticket,updateTotal(),Calcula y muestra el total del ticket,Items del ticket,Total calculado y formateado en la interfaz,Éxito,Recalcula al añadir/eliminar items
+Sistema de Tickets,Backend,app.py,get_ticket(),Obtiene el ticket asociado a una mesa específica,Número de mesa,Objeto ticket con items y total,Éxito,Crea un ticket nuevo si no existe
+Sistema de Tickets,Backend,app.py,add_item_to_ticket(),Añade un item al ticket de una mesa,ID de mesa e información del item,Ticket actualizado con el nuevo item,Éxito,Maneja cantidades y personalización
+Sistema de Tickets,Backend,app.py,remove_item_from_ticket(),Elimina un item del ticket,ID de mesa e índice del item a eliminar,Ticket actualizado sin el item eliminado,Éxito,Actualiza el total automáticamente
+Sistema de Tickets,Frontend,ticket.html,renderTicket(),Actualiza la vista del ticket con los items actuales,Datos del ticket,Vista actualizada del ticket,Éxito,Muestra items con cantidades y precios
+Sistema de Tickets,Frontend,ticket.html,updateTotal(),Calcula y muestra el total del ticket,Items del ticket,Total calculado y formateado en la interfaz,Éxito,Recalcula al añadir/eliminar items
 
-Personalización de Artículos,Backend,Gestor de Tickets,add_item_to_ticket(),Procesa la personalización de un artículo,Item con información de personalización,Ticket con item personalizado,Éxito,Almacena variantes e ingredientes seleccionados
-Personalización de Artículos,Frontend,Modal de Personalización,showCustomizationModal(),Muestra el modal para personalizar un artículo,ID del artículo a personalizar,Modal con opciones de variantes e ingredientes,Éxito,Interfaz intuitiva para personalización
-Personalización de Artículos,Frontend,Modal de Personalización,saveCustomization(),Guarda las opciones de personalización seleccionadas,Variantes e ingredientes seleccionados,Cierre del modal y artículo añadido al ticket,Éxito,Envía datos completos de personalización
+Personalización de Artículos,Backend,app.py,add_item_to_ticket(),Procesa la personalización de un artículo,Item con información de personalización,Ticket con item personalizado,Éxito,Almacena variantes e ingredientes seleccionados
+Personalización de Artículos,Frontend,menu.html,openModal(),Muestra el modal para personalizar un artículo,ID del artículo a personalizar,Modal con opciones de variantes e ingredientes,Éxito,Interfaz intuitiva para personalización
+Personalización de Artículos,Frontend,menu.html,addCustomizedItemToTicket(),Guarda las opciones de personalización seleccionadas,Variantes e ingredientes seleccionados,Cierre del modal y artículo añadido al ticket,Éxito,Envía datos completos de personalización
 
-Gestión del Menú,Backend,Servicio de Menú,get_menu(),Obtiene el menú completo con categorías e items,Ninguna,Estructura completa del menú,Éxito,Información completa para mostrar en frontend
-Gestión del Menú,Frontend,Visualizador de Menú,loadAndDisplayMenu(),Carga y muestra el menú por categorías,Datos del menú,Interfaz visual con categorías e items,Éxito,Organizado por categorías para fácil navegación
-Gestión del Menú,Frontend,Visualizador de Menú,addItemClickHandler(),Maneja el evento de añadir un item al ticket,ID del item seleccionado,Item añadido al ticket o modal de personalización,Éxito,Muestra modal de personalización cuando es necesario
+Gestión del Menú,Backend,app.py,get_menu(),Obtiene el menú completo con categorías e items,Ninguna,Estructura completa del menú,Éxito,Información completa para mostrar en frontend
+Gestión del Menú,Frontend,menu.html,loadMenu(),Carga y muestra el menú por categorías,Datos del menú,Interfaz visual con categorías e items,Éxito,Organizado por categorías para fácil navegación
+Gestión del Menú,Frontend,menu.html,renderMenu(),Renderiza los artículos del menú en la interfaz,Categoría del menú,Visualización de los artículos en la interfaz,Éxito,Muestra información e imágenes de artículos
 
-Persistencia de Datos,Backend,Gestor de Datos,load_tickets(),Carga los tickets desde el archivo JSON,Ninguna,Objeto con todos los tickets,Éxito,Manejo de errores en caso de archivo corrupto
-Persistencia de Datos,Backend,Gestor de Datos,save_tickets(),Guarda los tickets en el archivo JSON,Objeto con tickets actualizados,Archivo JSON actualizado,Éxito,Asegura persistencia entre reinicios
-Persistencia de Datos,Backend,Gestor de Datos,load_menu(),Carga el menú desde el archivo JSON,Ninguna,Objeto con el menú completo,Éxito,Estructura con categorías e items
-Persistencia de Datos,Backend,Gestor de Datos,load_employees(),Carga los empleados desde el archivo JSON,Ninguna,Objeto con todos los empleados,Éxito,Datos necesarios para autenticación
+Persistencia de Datos,Backend,app.py,load_tickets(),Carga los tickets desde el archivo JSON,Ninguna,Objeto con todos los tickets,Éxito,Manejo de errores en caso de archivo corrupto
+Persistencia de Datos,Backend,app.py,save_tickets(),Guarda los tickets en el archivo JSON,Objeto con tickets actualizados,Archivo JSON actualizado,Éxito,Asegura persistencia entre reinicios
+Persistencia de Datos,Backend,app.py,load_menu(),Carga el menú desde el archivo JSON,Ninguna,Objeto con el menú completo,Éxito,Estructura con categorías e items
+Persistencia de Datos,Backend,app.py,load_employees(),Carga los empleados desde el archivo JSON,Ninguna,Objeto con todos los empleados,Éxito,Datos necesarios para autenticación
 
-Compatibilidad CORS,Backend,Middleware,CORS config,Configura las cabeceras CORS para permitir comunicación cross-origin,Solicitudes del frontend,Respuestas con cabeceras CORS correctas,Éxito,Esencial para comunicación frontend-backend
-Compatibilidad CORS,Backend,Middleware,test_cors(),Endpoint de prueba para verificar configuración CORS,Solicitud GET,Respuesta confirmando funcionamiento CORS,Éxito,Útil para diagnóstico de problemas
+Compatibilidad CORS,Backend,app.py,CORS config,Configura las cabeceras CORS para permitir comunicación cross-origin,Solicitudes del frontend,Respuestas con cabeceras CORS correctas,Éxito,Esencial para comunicación frontend-backend
+Compatibilidad CORS,Backend,app.py,test_cors(),Endpoint de prueba para verificar configuración CORS,Solicitud GET,Respuesta confirmando funcionamiento CORS,Éxito,Útil para diagnóstico de problemas
 
-Inicialización,Backend,Servicio de Inicialización,init_db(),Inicializa la base de datos si no existe,Ninguna,Archivos JSON creados con datos iniciales,Éxito,Asegura que el sistema arranca correctamente
-Inicialización,Frontend,Carga Inicial,testBackendConnection(),Prueba la conexión con el backend al cargar,Ninguna,Indicación de estado de conexión,Éxito,Diagnóstico temprano de problemas de conexión
+Inicialización,Backend,app.py,init_db(),Inicializa la base de datos si no existe,Ninguna,Archivos JSON creados con datos iniciales,Éxito,Asegura que el sistema arranca correctamente
+Inicialización,Frontend,script.js,testBackendConnection(),Prueba la conexión con el backend al cargar,Ninguna,Indicación de estado de conexión,Éxito,Diagnóstico temprano de problemas de conexión
+
+Gestión del Modal,Frontend,menu.html,openModal(),Abre el modal para personalizar un artículo,Datos del artículo,Modal visible con opciones de personalización,Éxito,Muestra interfaz de personalización
+Gestión del Modal,Frontend,menu.html,closeModal(),Cierra el modal de personalización,Ninguna,Modal oculto sin realizar acciones,Éxito,Permite cancelar personalización
+Gestión del Modal,Frontend,menu.html,populateIngredients(),Muestra los ingredientes en el modal,Datos del artículo,Lista de ingredientes visualizada en el modal,Éxito,Permite al usuario seleccionar ingredientes
+
+Interfaz de Artículos,Frontend,menu.html,renderCategoryTabs(),Renderiza las pestañas de categorías,Datos de categorías,Pestañas de categorías visualizadas,Éxito,Permite al usuario navegar entre categorías
+Interfaz de Artículos,Frontend,menu.html,showNotification(),Muestra notificaciones en la interfaz,Mensaje y tipo de notificación,Notificación visible temporalmente,Éxito,Proporciona feedback al usuario

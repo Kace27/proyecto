@@ -1,3 +1,63 @@
 {
-    "tickets": {}
+    "tickets": {
+        "1": {
+            "items": [
+                {
+                    "id": 2,
+                    "name": "Articulo 2 (Var. B)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": []
+                    }
+                }
+            ],
+            "total": 120,
+            "ticket_number": "0-0001",
+            "timestamp": "2025-04-16 15:43:44",
+            "status": "pending"
+        },
+        "5": {
+            "items": [
+                {
+                    "id": 2,
+                    "name": "Articulo 2 (Var. C) (Sin chicken)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "C",
+                        "excludedIngredients": [
+                            "chicken"
+                        ]
+                    },
+                    "excludedIngredients": [
+                        "chicken"
+                    ]
+                }
+            ],
+            "total": 120,
+            "ticket_number": "0-0002",
+            "timestamp": "2025-04-16 15:44:16",
+            "status": "pending"
+        },
+        "4": {
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Articulo 1 (Var. B)",
+                    "price": 100,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": []
+                    }
+                }
+            ],
+            "total": 100,
+            "ticket_number": "0-0003",
+            "timestamp": "2025-04-16 15:44:46",
+            "status": "pending"
+        }
+    }
 }

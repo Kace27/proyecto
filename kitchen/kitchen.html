@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Cocina</title>
+    <style>
+        body {
+            font-family: 'Sen', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            color: #32343E;
+        }
+        header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        h1 {
+            color: #181C2E;
+            font-size: 28px;
+            margin: 0 0 10px 0;
+        }
+        .tickets-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .ticket-card {
+            width: 350px;
+            height: 620px;
+            position: relative;
+            background: #E7E7E7;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .ticket-header {
+            width: 100%;
+            height: 94px;
+            padding: 15px;
+            box-sizing: border-box;
+            border-radius: 9px 9px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pending {
+            background: #FF3B30;
+        }
+        .preparing {
+            background: #FFCC00;
+        }
+        .ready {
+            background: #34C759;
+        }
+        .table-info {
+            color: #181C2E;
+            font-size: 28px;
+            line-height: 30px;
+        }
+        .table-info span {
+            display: block;
+            margin-top: 5px;
+            font-size: 22px;
+        }
+        .time-elapsed {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 30px;
+            color: #181C2E;
+        }
+        .items-container {
+            padding: 15px;
+            overflow-y: auto;
+            max-height: 430px;
+        }
+        .item {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .item-tag {
+            color: #ED7A63;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .item-name {
+            color: #32343E;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .item-id {
+            color: #9C9BA6;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .btn-done {
+            width: 61px;
+            height: 36px;
+            background: #FF7622;
+            border-radius: 9px;
+            color: white;
+            border: none;
+            font-family: 'Sen', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .btn-action {
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+            padding: 12px;
+            background: #FF7622;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .item-price {
+            font-size: 18px;
+            color: #32343E;
+            margin-top: 5px;
+        }
+        .controls {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+            .tickets-container {
+                justify-content: center;
+            }
+        }
+        
+        /* Estilos para el indicador de estado de conexión */
+        #connection-status {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            z-index: 1000;
+        }
+        
+        .status-connected {
+            background-color: #34C759;
+        }
+        
+        .status-disconnected {
+            background-color: #FF9500;
+        }
+        
+        .status-error {
+            background-color: #FF3B30;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Pantalla de Cocina</h1>
+        <p>Sistema de tickets en tiempo real</p>
+    </header>
+    
+    <div id="tickets-container" class="tickets-container">
+        <!-- Los tickets se generarán dinámicamente aquí -->
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="kitchen.js"></script>
+</body>
+</html> 

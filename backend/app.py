@@ -4,10 +4,12 @@ import json
 import os
 import logging
 import sys
+import datetime
+from flask_socketio import SocketIO, emit
 
 # Configurar logs
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler("app.log"),
@@ -19,13 +21,10 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 # Configurar CORS correctamente
-CORS(app, resources={
-    r"/*": {
-        "origins": "http://localhost:8000",
-        "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type", "Accept"]
-    }
-})
+CORS(app, resources={r"/*": {"origins": "*"}})
+
+# Inicializa Socket.IO
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Ruta de prueba específica para probar CORS
 @app.route('/test-cors', methods=['GET', 'OPTIONS'])
@@ -36,10 +35,11 @@ def test_cors():
 
 @app.after_request
 def after_request(response):
-    # Imprimir información sobre la solicitud para depuración
-    logger.debug(f"Procesando solicitud: {request.method} {request.path}")
-    logger.debug(f"Cabeceras de solicitud: {dict(request.headers)}")
-    logger.debug(f"Cabeceras de respuesta: {dict(response.headers)}")
+    # Asegurar que los encabezados CORS estén presentes
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization,Accept')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    
     return response
 
 # Database setup
@@ -150,9 +150,16 @@ def init_db():
         save_tickets(tickets_data)
         logger.info("Tickets JSON inicializado.")
 
-@app.route('/verify_pin', methods=['POST'])
+@app.route('/verify_pin', methods=['POST', 'OPTIONS'])
 def verify_pin():
     """Verify PIN and return employee information if valid"""
+    # Manejar solicitud OPTIONS
+    if request.method == 'OPTIONS':
+        response = make_response()
+        response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Accept')
+        return response
+        
     logger.info("Recibida solicitud POST a /verify_pin")
     
     # Imprimir cuerpo de la solicitud
@@ -406,7 +413,87 @@ def get_active_tables():
     
     return jsonify(active_tables)
 
+# Nueva ruta para confirmar tickets y enviarlos a la cocina
+@app.route('/ticket/<table_number>/confirm', methods=['POST'])
+def confirm_ticket(table_number):
+    """Confirma un ticket y lo envía a la cocina"""
+    try:
+        tickets_data = load_tickets()
+        
+        # Verificar que exista el ticket
+        if table_number not in tickets_data["tickets"]:
+            return jsonify({'success': False, 'message': 'Ticket no encontrado'}), 404
+        
+        ticket = tickets_data["tickets"][table_number]
+        
+        # Generar número de ticket (puedes personalizar este formato)
+        ticket_number = f"0-{len(tickets_data['tickets']):04d}"
+        
+        # Añadir número de ticket y timestamp
+        ticket["ticket_number"] = ticket_number
+        ticket["timestamp"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        ticket["status"] = "pending"  # pending, preparing, ready, delivered
+        
+        # Guardar ticket actualizado
+        save_tickets(tickets_data)
+        
+        # Emitir evento de websocket para la cocina
+        socketio.emit('new_ticket', ticket)
+        
+        return jsonify({
+            'success': True, 
+            'message': 'Ticket confirmado y enviado a cocina', 
+            'ticket': ticket
+        })
+    except Exception as e:
+        logger.error(f"Error al confirmar ticket: {str(e)}")
+        return jsonify({'success': False, 'message': f'Error: {str(e)}'})
+
+# Actualiza el estado de un ticket desde la cocina
+@app.route('/ticket/<table_number>/status', methods=['POST'])
+def update_ticket_status(table_number):
+    """Actualiza el estado de un ticket desde la cocina"""
+    data = request.json
+    if not data or "status" not in data:
+        return jsonify({'success': False, 'message': 'Datos inválidos'}), 400
+    
+    new_status = data["status"]
+    if new_status not in ["pending", "preparing", "ready", "delivered"]:
+        return jsonify({'success': False, 'message': 'Estado inválido'}), 400
+    
+    tickets_data = load_tickets()
+    
+    if table_number not in tickets_data["tickets"]:
+        return jsonify({'success': False, 'message': 'Ticket no encontrado'}), 404
+    
+    tickets_data["tickets"][table_number]["status"] = new_status
+    save_tickets(tickets_data)
+    
+    # Emitir evento para actualizar a todos los clientes
+    socketio.emit('ticket_status_changed', {
+        'table': table_number,
+        'status': new_status,
+        'ticket': tickets_data["tickets"][table_number]
+    })
+    
+    return jsonify({'success': True, 'ticket': tickets_data["tickets"][table_number]})
+
+@app.route('/tickets/kitchen', methods=['GET'])
+def get_kitchen_tickets():
+    """Obtiene todos los tickets activos con sus detalles para la pantalla de cocina"""
+    tickets_data = load_tickets()
+    
+    # Filtrar tickets que tienen estado (han sido confirmados)
+    kitchen_tickets = {}
+    
+    for table_number, ticket in tickets_data["tickets"].items():
+        # Solo incluir tickets confirmados (con status)
+        if "status" in ticket and ticket["items"] and len(ticket["items"]) > 0:
+            kitchen_tickets[table_number] = ticket
+    
+    return jsonify({"tickets": kitchen_tickets})
+
 if __name__ == '__main__':
-    logger.info("Iniciando servidor Flask...")
+    logger.info("Iniciando servidor Flask con Socket.IO...")
     init_db()  # Initialize database on startup
-    app.run(debug=True, host='0.0.0.0', port=5002) 
+    socketio.run(app, debug=True, host='0.0.0.0', port=5002) 

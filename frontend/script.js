@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuration
     const API_URL = 'http://localhost:5002/verify_pin'; // URL del endpoint para verificar el PIN
     const TEST_URL = 'http://localhost:5002/test-cors'; // URL del endpoint para probar CORS
+    const KITCHEN_URL = 'http://localhost:5002/ticket'; // URL base para operaciones de tickets
     const MAX_PIN_LENGTH = 4; // Longitud máxima del PIN
     
     // DOM Elements
@@ -224,4 +225,65 @@ document.addEventListener('DOMContentLoaded', function() {
         resultContainer.classList.remove('show'); // Oculta el contenedor de resultados
         messageArea.textContent = ''; // Limpia el área de mensajes
     }
+    
+    // Función para confirmar y enviar el ticket a la cocina
+    window.confirmAndSendTicket = function(tableNumber) {
+        if (!tableNumber) {
+            alert('Número de mesa no especificado');
+            return;
+        }
+        
+        try {
+            // Mostrar mensaje de carga
+            if (messageArea) {
+                messageArea.textContent = 'Enviando ticket a cocina...';
+            }
+            
+            fetch(`${KITCHEN_URL}/${tableNumber}/confirm`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                mode: 'cors'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error de servidor: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Ticket enviado correctamente
+                    alert('Ticket enviado a cocina correctamente');
+                    
+                    // Si hay un área de mensajes, actualizar
+                    if (messageArea) {
+                        messageArea.textContent = 'Ticket enviado exitosamente';
+                    }
+                    
+                    // Puedes redirigir a otra página o realizar otras acciones aquí
+                    console.log('Ticket confirmado:', data.ticket);
+                } else {
+                    // Error al enviar el ticket
+                    alert(`Error: ${data.message}`);
+                    if (messageArea) {
+                        messageArea.textContent = `Error: ${data.message}`;
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error al confirmar ticket:', error);
+                alert(`Error de conexión: ${error.message}`);
+                
+                if (messageArea) {
+                    messageArea.textContent = `Error de conexión: ${error.message}`;
+                }
+            });
+        } catch (error) {
+            console.error('Error general:', error);
+            alert(`Error: ${error.message}`);
+        }
+    };
 }); 

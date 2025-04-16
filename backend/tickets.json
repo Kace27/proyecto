@@ -37,9 +37,44 @@
                         "variant": "B",
                         "excludedIngredients": []
                     }
+                },
+                {
+                    "id": 2,
+                    "name": "Papas (Var. B) (Sin salt, chicken, onion, garlic, orange, pappers)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": [
+                            "salt",
+                            "chicken",
+                            "onion",
+                            "garlic",
+                            "orange",
+                            "pappers"
+                        ]
+                    },
+                    "excludedIngredients": [
+                        "salt",
+                        "chicken",
+                        "onion",
+                        "garlic",
+                        "orange",
+                        "pappers"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Papas (Var. B)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": []
+                    }
                 }
             ],
-            "total": 360
+            "total": 600
         },
         "1": {
             "table": "1",
@@ -238,6 +273,36 @@
                 }
             ],
             "total": 120
+        },
+        "7": {
+            "items": [
+                {
+                    "id": 2,
+                    "name": "Papas (Var. B) (Sin salt)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": [
+                            "salt"
+                        ]
+                    },
+                    "excludedIngredients": [
+                        "salt"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Papas (Var. B)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": []
+                    }
+                }
+            ],
+            "total": 240
         }
     }
 }

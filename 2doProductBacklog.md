@@ -21,8 +21,9 @@
    - Implementar el modal de acuerdo al diseño visto en figma.
    - Se mostraran y se podran elegir las variantes del producto y los ingredientes deseados.
 
-#### Integración 
-   - Integración de todo lo implementado por individual.
+#### Modal de Variantes
+   - Implementar el modal de acuerdo al diseño visto en figma.
+   - Se mostraran y se podran elegir las variantes del producto y los ingredientes deseados.
 
 
 
@@ -42,10 +43,6 @@
 
 # Product Backlog 3  
  
-#### Modal de Variantes
-   - Implementar el modal de acuerdo al diseño visto en figma.
-   - Se mostraran y se podran elegir las variantes del producto y los ingredientes deseados.
-
 #### Modulo Chef
 5. **Gestión Pantalla de Cocina**
     - Implementa la logica para poder recibir los tickets que envia el mesero

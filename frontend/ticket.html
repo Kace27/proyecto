@@ -344,20 +344,30 @@
             // Confirmar ticket
             confirmTicketBtn.addEventListener('click', function() {
                 fetch(`${API_BASE_URL}/ticket/${tableNumber}/confirm`, {
-                    method: 'POST'
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    mode: 'cors'
                 })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error de servidor: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.success) {
-                        alert('Ticket confirmado correctamente');
-                        window.location.href = 'menu.html?table=' + tableNumber;
+                        alert('Ticket enviado a cocina correctamente');
+                        window.location.href = 'mesas.html';
                     } else {
-                        alert(data.message || 'Error al confirmar el ticket');
+                        alert(data.message || 'Error al enviar el ticket a cocina');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Error al confirmar el ticket');
+                    alert(`Error al enviar ticket a cocina: ${error.message}`);
                 });
             });
 
