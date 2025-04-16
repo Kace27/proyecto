@@ -1,0 +1,22 @@
+Componente,Subcomponente,Clase/Módulo,Método/Función,Descripción,Entrada,Salida esperada,Resultado,Comentarios
+
+Sistema de Autenticación,Frontend,Interfaz de Login,handlePinInput(),Procesa el PIN sin necesidad del botón OK,PIN de 4 dígitos completado,Envío automático de PIN para verificación,Pendiente,Elimina la necesidad del botón OK
+Sistema de Autenticación,Frontend,Interfaz de Login,autoSubmitPin(),Detecta cuando se han ingresado 4 dígitos y envía automáticamente,4 dígitos del PIN,Envío automático del PIN al backend,Pendiente,Mejora la experiencia de usuario al reducir clics
+
+Gestión de Mesas,Frontend,Visualizador de Mesas,renderTableGrid(),Renderiza la disposición correcta de mesas según diseño,Configuración de disposición de mesas,Visualización del grid de mesas según especificaciones,Pendiente,Ajusta el layout a las necesidades del restaurante
+Gestión de Mesas,Frontend,Visualizador de Mesas,updateTableStatus(),Actualiza el color de las mesas según su estado,Estado de la mesa (ocupada/libre),Mesas en verde (libres) o naranja (ocupadas),Pendiente,Feedback visual inmediato sobre disponibilidad
+Gestión de Mesas,Frontend,Visualizador de Mesas,refreshTableStatus(),Actualiza periódicamente el estado de las mesas,Datos de tickets actualizados,Actualización visual de estados de mesas,Pendiente,Mantiene la información sincronizada
+
+Gestión del Menú,Frontend,Visualizador de Menú,renderMenuItem(),Muestra los artículos con el nuevo diseño,Datos del artículo,Representación visual según el diseño especificado,Pendiente,Mejora la presentación de los artículos
+Gestión del Menú,Frontend,Visualizador de Menú,loadMenuFromDatabase(),Carga los artículos desde la base de datos,Ninguna,Lista completa de artículos con sus detalles,Pendiente,Datos dinámicos para el menú
+Gestión del Menú,Frontend,Visualizador de Menú,displayItemImages(),Muestra imágenes para cada artículo del menú,Ruta de imagen del artículo,Imagen renderizada correctamente en la tarjeta,Pendiente,Mejora la experiencia visual del menú
+Gestión del Menú,Backend,Servicio de Menú,get_menu_with_images(),Obtiene el menú con rutas a imágenes,Ninguna,Estructura de menú con URLs de imágenes,Pendiente,Proporciona datos completos para frontend
+
+Personalización de Artículos,Frontend,Modal de Personalización,renderCustomizationModal(),Muestra el modal según diseño de Figma,ID del artículo seleccionado,Modal con diseño acorde a Figma,Pendiente,Interfaz intuitiva para personalización
+Personalización de Artículos,Frontend,Modal de Personalización,loadVariantsAndIngredients(),Carga las variantes e ingredientes disponibles,ID del artículo,Lista de variantes e ingredientes seleccionables,Pendiente,Opciones personalizables por artículo
+Personalización de Artículos,Frontend,Modal de Personalización,handleVariantSelection(),Gestiona la selección de variantes,Selección de usuario,Actualización visual de elementos seleccionados,Pendiente,Retroalimentación inmediata de selecciones
+Personalización de Artículos,Frontend,Modal de Personalización,handleIngredientSelection(),Gestiona la selección de ingredientes,Selección de usuario,Actualización visual de ingredientes seleccionados,Pendiente,Permite personalización detallada
+
+Integración,Backend,Servicio de Integración,validateEndpointIntegration(),Verifica que todos los endpoints funcionan correctamente,Solicitudes a todos los endpoints,Respuestas correctas de todos los endpoints,Pendiente,Asegura la integración backend completa
+Integración,Frontend,Integrador de Módulos,testComponentInteractions(),Prueba las interacciones entre componentes de la interfaz,Acciones del usuario en el flujo completo,Comportamiento coherente entre componentes,Pendiente,Valida la integración de la interfaz
+Integración,Sistema,Prueba de Sistema,performEndToEndTest(),Realiza prueba completa del flujo de trabajo,Flujo de acciones desde login hasta pedido,Funcionamiento correcto de todo el flujo,Pendiente,Validación integral del sistema 

@@ -1,0 +1,193 @@
+/* Modal styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-container {
+    background-color: white;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #181C2E;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #98A8B8;
+}
+
+.variant-section {
+    margin-bottom: 20px;
+}
+
+.variant-section h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #181C2E;
+}
+
+.variant-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.variant-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-weight: 700;
+    border: 2px solid transparent;
+}
+
+.variant-option.active {
+    background-color: #F58D1D;
+    color: white;
+}
+
+.ingredients-section {
+    margin-bottom: 20px;
+}
+
+.ingredients-section h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #181C2E;
+}
+
+.ingredient-instruction {
+    font-size: 12px;
+    color: #98A8B8;
+    margin-bottom: 15px;
+    text-align: center;
+    font-style: italic;
+}
+
+.ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.ingredient-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.ingredient-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #FFF0E8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.ingredient-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.ingredient-name {
+    font-size: 12px;
+    text-align: center;
+    color: #181C2E;
+}
+
+.ingredient-allergy {
+    font-size: 10px;
+    color: #F58D1D;
+    text-align: center;
+}
+
+.ingredient-item.excluded .ingredient-icon {
+    position: relative;
+}
+
+.ingredient-item.excluded .ingredient-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+.ingredient-item.excluded .ingredient-icon::before {
+    content: '×';
+    position: absolute;
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.save-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #F58D1D;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.save-button:hover {
+    background-color: #e48118;
+} 

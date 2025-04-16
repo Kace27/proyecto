@@ -302,7 +302,7 @@ def add_item_to_ticket(table_number):
         data = request.json
         item_id = data.get('item_id')
         quantity = data.get('quantity', 1)
-        customization = data.get('customization', None)
+        customizations = data.get('customizations', None)
         
         # Buscar el ítem en el menú
         item = None
@@ -326,17 +326,21 @@ def add_item_to_ticket(table_number):
         }
         
         # Añadir información de personalización si existe
-        if customization:
-            ticket_item['customization'] = customization
+        if customizations:
+            ticket_item['customizations'] = customizations
             
             # Modificar el nombre para indicar la variante
-            if 'variant' in customization:
-                ticket_item['name'] = f"{ticket_item['name']} (Var. {customization['variant']})"
+            if 'variant' in customizations:
+                ticket_item['name'] = f"{ticket_item['name']} (Var. {customizations['variant']})"
             
             # Añadir información sobre ingredientes excluidos
-            if 'ingredients' in customization:
-                # Esta es una lógica básica, puedes adaptarla según tus necesidades
-                ticket_item['ingredients'] = customization['ingredients']
+            if 'excludedIngredients' in customizations and customizations['excludedIngredients']:
+                ticket_item['excludedIngredients'] = customizations['excludedIngredients']
+                
+                # Si hay ingredientes excluidos, mostrarlos en el nombre
+                if len(customizations['excludedIngredients']) > 0:
+                    excluded_text = ", ".join(customizations['excludedIngredients'])
+                    ticket_item['name'] = f"{ticket_item['name']} (Sin {excluded_text})"
         
         # Agregar ítem al ticket
         tickets_data['tickets'][table_number]['items'].append(ticket_item)

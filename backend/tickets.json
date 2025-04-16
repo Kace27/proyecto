@@ -2,8 +2,44 @@
     "tickets": {
         "4": {
             "table": "4",
-            "items": [],
-            "total": 0
+            "items": [
+                {
+                    "id": 2,
+                    "name": "Papas (Var. C) (Sin chicken)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "C",
+                        "excludedIngredients": [
+                            "chicken"
+                        ]
+                    },
+                    "excludedIngredients": [
+                        "chicken"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Papas (Var. C)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "C",
+                        "excludedIngredients": []
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "Papas (Var. B)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": []
+                    }
+                }
+            ],
+            "total": 360
         },
         "1": {
             "table": "1",
@@ -140,9 +176,57 @@
                     "name": "Papas",
                     "price": 120,
                     "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "name": "Papas",
+                    "price": 120,
+                    "quantity": 1
+                },
+                {
+                    "id": 1,
+                    "name": "Hamburguesas (Var. C) (Sin chicken)",
+                    "price": 100,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "C",
+                        "excludedIngredients": [
+                            "chicken"
+                        ]
+                    },
+                    "excludedIngredients": [
+                        "chicken"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Papas (Var. B) (Sin broccoli)",
+                    "price": 120,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": [
+                            "broccoli"
+                        ]
+                    },
+                    "excludedIngredients": [
+                        "broccoli"
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "Hamburguesas",
+                    "price": 100,
+                    "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "name": "Papas",
+                    "price": 120,
+                    "quantity": 1
                 }
             ],
-            "total": 700
+            "total": 1260
         },
         "5": {
             "items": [

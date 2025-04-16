@@ -6,6 +6,7 @@
     <title>Menú - Sistema de Restaurante</title>
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
     <style>
         /* Mantener los estilos relevantes del ticket.html original */
         body {
@@ -156,6 +157,36 @@
             background-color: #E0E0E0;
             color: #181C2E;
         }
+
+        /* Add styles for modal related features */
+        body.modal-open {
+            overflow: hidden;
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            padding: 12px 20px;
+            border-radius: 8px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: 500;
+            z-index: 9999;
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .notification.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        
+        .notification.error {
+            background-color: #F44336;
+        }
     </style>
 </head>
 <body>
@@ -176,6 +207,35 @@
         </div>
     </div>
 
+    <!-- Modal para seleccionar variantes e ingredientes -->
+    <div class="modal-overlay" id="item-modal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-item-name">Articulo 1</h2>
+                <button class="close-button" id="modal-close">&times;</button>
+            </div>
+            
+            <div class="variant-section">
+                <h3>VARIANTE:</h3>
+                <div class="variant-options">
+                    <div class="variant-option" data-variant="A">A</div>
+                    <div class="variant-option active" data-variant="B">B</div>
+                    <div class="variant-option" data-variant="C">C</div>
+                </div>
+            </div>
+            
+            <div class="ingredients-section">
+                <h3>INGREDIENTES</h3>
+                <p class="ingredient-instruction">Toca un ingrediente para excluirlo</p>
+                <div class="ingredients-grid" id="ingredients-grid">
+                    <!-- Ingredients will be populated dynamically -->
+                </div>
+            </div>
+            
+            <button class="save-button" id="modal-save">GUARDAR</button>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const API_BASE_URL = 'http://localhost:5002';
@@ -187,7 +247,21 @@
             const backBtn = document.getElementById('back-btn');
             const categoryTabsEl = document.getElementById('category-tabs');
             const menuContainerEl = document.getElementById('menu-container');
-
+            
+            // Elementos del Modal
+            const itemModal = document.getElementById('item-modal');
+            const modalContainer = document.querySelector('.modal-container');
+            const modalItemName = document.getElementById('modal-item-name');
+            const modalClose = document.getElementById('modal-close');
+            const variantOptions = document.querySelectorAll('.variant-option');
+            const ingredientsGrid = document.getElementById('ingredients-grid');
+            const modalSave = document.getElementById('modal-save');
+            
+            // Variables para el modal
+            let currentItemId = null;
+            let selectedVariant = 'B'; // Default variant
+            let excludedIngredients = [];
+            
             // Mostrar número de mesa
             tableNumberEl.textContent = tableNumber;
 
@@ -198,6 +272,43 @@
 
             backBtn.addEventListener('click', function() {
                 window.location.href = 'mesas.html';
+            });
+            
+            // Events for modal
+            modalClose.addEventListener('click', closeModal);
+            
+            // Close modal when clicking outside of it
+            itemModal.addEventListener('click', function(event) {
+                if (event.target === itemModal) {
+                    closeModal();
+                }
+            });
+            
+            // Prevent bubbling of clicks within the modal container
+            modalContainer.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+            
+            // Escape key to close modal
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && itemModal.classList.contains('show')) {
+                    closeModal();
+                }
+            });
+            
+            // Variant selection
+            variantOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    variantOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    selectedVariant = this.getAttribute('data-variant');
+                });
+            });
+            
+            // Save button
+            modalSave.addEventListener('click', function() {
+                addCustomizedItemToTicket();
+                closeModal();
             });
 
             // Cargar y mostrar el menú
@@ -286,7 +397,7 @@
                     addBtn.className = 'add-button';
                     addBtn.textContent = '+';
                     addBtn.addEventListener('click', function() {
-                        addItemToTicket(item.id);
+                        openModal(item);
                     });
                     
                     itemEl.appendChild(addBtn);
@@ -296,28 +407,175 @@
                 menuContainerEl.appendChild(gridEl);
             }
 
-            // Función para agregar un ítem al ticket
-            function addItemToTicket(itemId) {
+            // Función para abrir el modal
+            function openModal(item) {
+                currentItemId = item.id;
+                modalItemName.textContent = item.name;
+                selectedVariant = 'B'; // Reset to default
+                excludedIngredients = []; // Reset excluded ingredients
+                
+                // Reset variant selection UI
+                variantOptions.forEach(option => {
+                    option.classList.remove('active');
+                    if (option.getAttribute('data-variant') === 'B') {
+                        option.classList.add('active');
+                    }
+                });
+                
+                // Populate ingredients
+                populateIngredients(item);
+                
+                // Show modal
+                itemModal.classList.add('show');
+                
+                // Add body class to prevent scrolling
+                document.body.classList.add('modal-open');
+            }
+            
+            // Función para cerrar el modal
+            function closeModal() {
+                itemModal.classList.remove('show');
+                
+                // Remove body class to allow scrolling
+                document.body.classList.remove('modal-open');
+            }
+            
+            // Función para poblar los ingredientes en el modal
+            function populateIngredients(item) {
+                ingredientsGrid.innerHTML = '';
+                
+                // Ingredientes de ejemplo (en un entorno real, estos vendrían del backend)
+                const ingredients = [
+                    { id: 'salt', name: 'Salt', image: 'salt.png', allergy: false },
+                    { id: 'chicken', name: 'Chicken', image: 'chicken.png', allergy: false },
+                    { id: 'onion', name: 'Onion', image: 'onion.png', allergy: true },
+                    { id: 'garlic', name: 'Garlic', image: 'garlic.png', allergy: false },
+                    { id: 'pappers', name: 'Pappers', image: 'pappers.png', allergy: true },
+                    { id: 'ginger', name: 'Ginger', image: 'ginger.png', allergy: false },
+                    { id: 'broccoli', name: 'Broccoli', image: 'broccoli.png', allergy: false },
+                    { id: 'orange', name: 'Orange', image: 'orange.png', allergy: false },
+                    { id: 'walnut', name: 'Walnut', image: 'walnut.png', allergy: false }
+                ];
+                
+                // Map of SVG icons for ingredients
+                const iconMap = {
+                    salt: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a2 2 0 1 0 4 0 4 4 0 1 1 2 3.5v.5a2 2 0 1 1-4 0v-.5A4 4 0 0 1 10 13z"></path><path d="M12 12V2"></path></svg>',
+                    chicken: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.6 2.5a1 1 0 0 0-1.2 0l-2 1.3a1 1 0 0 0-.4.8V6l-2 1c-2 1-3 3.5-3 7v3c0 .7.3 1.3.8 1.8L8 20.8c.3.3.6.2 1-.2.5-.5 1.3-.5 1.8 0 .2.2.3.4.4.7 0 .5.6.7 1 .4l.8-.7c.4-.4.6-1 .6-1.5V13a2 2 0 1 1 4 0v7.5c0 .6.2 1.1.6 1.5l.8.7c.4.3 1 .1 1-.4.1-.3.2-.5.4-.7.5-.5 1.3-.5 1.8 0 .4.4.7.5 1 .2l2.2-2C21.7 18.3 22 17.7 22 17v-3c0-3.5-1-6-3-7l-2-1V4.6a1 1 0 0 0-.4-.8l-2-1.3z"></path></svg>',
+                    onion: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7c-4.4 5.5-4.4 9.5 0 15 4.4-5.5 4.4-9.5 0-15z"></path><path d="M5 13c8 3 16 0 16 0s-8-3-16 0"></path><path d="M5 22c8 3 16 0 16 0s-8-3-16 0"></path><path d="M12 2c0 5 4.4 7 8 8"></path><path d="M12 2c0 5-4.4 7-8 8"></path></svg>',
+                    garlic: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 13a3 3 0 0 1-6 0"></path><path d="M14.5 7.5c-.5-1-1.5-2-2.5-2s-2 1-2.5 2"></path><path d="M10.5 6C9 6 8 7 7 8"></path><path d="M16.12 10.37c-2.5-1.47-5.77-1.47-8.24 0a2.1 2.1 0 0 0-.88 2.9l5 8.65a2.1 2.1 0 0 0 1.83 1.08c.74 0 1.42-.37 1.82-1.08l5-8.65a2.1 2.1 0 0 0-.88-2.9z"></path></svg>',
+                    pappers: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8c0-2-2-4-4-4s-4 2-4 4 2 10 4 10 4-8 4-10z"></path><path d="M12 8v3"></path><path d="M8.5 8.5 7 7"></path><path d="M15.5 8.5 17 7"></path></svg>',
+                    ginger: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8.71V10a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V8.71a2 2 0 0 1 .59-1.42l3.82-3.82a2 2 0 0 1 3.41 1.41V7a2 2 0 0 1-.59 1.42L19 11.66"></path><path d="M19 8.71V10a2 2 0 0 1-2 2h-2a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2h4.5"></path><path d="M2 9v1a2 2 0 0 0 2 2h3"></path><path d="M10 6V5a2 2 0 0 0-2-2V2"></path><path d="M18 16v2a2 2 0 0 1-2 2h-3"></path></svg>',
+                    broccoli: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3a2.5 2.5 0 0 0 3.2 3.2c.7.7 1.2 1.8 1.1 3.2"></path><path d="M5.1 19.1a2.5 2.5 0 0 1 3.5-3.5c1.1.6 2.6.6 3 0a2.5 2.5 0 0 1 4 2"></path><path d="M12 22c1 0 1.9-.6 2.5-1.6a2.5 2.5 0 0 1 3.7-3.7c1.7-.2 3-1.9 2.8-3.7"></path><path d="M17 13a2.5 2.5 0 0 0 3.5-3.5 2.5 2.5 0 0 0 1.5-4.5 2.5 2.5 0 0 0-4.5 1.5 2.5 2.5 0 0 0-3.5 3.5"></path><path d="M14 7.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 0-3.5-3.5 2.5 2.5 0 0 0-3.5 3.5 2.5 2.5 0 0 1 0 5"></path><path d="M7 13a2.5 2.5 0 0 1 5 0v2"></path></svg>',
+                    orange: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><path d="M12 4V2"></path><path d="M12 22v-2"></path><path d="M20 12h2"></path><path d="M2 12h2"></path></svg>',
+                    walnut: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"></path><path d="M9 10a2 2 0 1 1 4 0h6.3c-.19-.68-.41-1.38-.66-2.06-.8-2.14-1.9-3.95-3.28-3.95-1.2 0-2.26 1.13-2.88 2.78A5.5 5.5 0 0 0 12 7a5.5 5.5 0 0 0-.48-.23C10.89 6.12 9.84 5 8.65 5 7.25 5 6.17 6.8 5.36 8.94c-.25.68-.47 1.38-.66 2.06z"></path><path d="M14 10a2 2 0 0 1 4 0"></path><path d="M13 13a2 2 0 1 0-2-2"></path><path d="M13 13h-2"></path><path d="M15 13h2"></path></svg>'
+                };
+                
+                ingredients.forEach(ingredient => {
+                    const ingredientEl = document.createElement('div');
+                    ingredientEl.className = 'ingredient-item';
+                    ingredientEl.dataset.ingredientId = ingredient.id;
+                    
+                    const iconEl = document.createElement('div');
+                    iconEl.className = 'ingredient-icon';
+                    
+                    // Use the SVG icon from the map
+                    iconEl.innerHTML = iconMap[ingredient.id];
+                    
+                    ingredientEl.appendChild(iconEl);
+                    
+                    const nameEl = document.createElement('div');
+                    nameEl.className = 'ingredient-name';
+                    nameEl.textContent = ingredient.name;
+                    ingredientEl.appendChild(nameEl);
+                    
+                    if (ingredient.allergy) {
+                        const allergyEl = document.createElement('div');
+                        allergyEl.className = 'ingredient-allergy';
+                        allergyEl.textContent = '(Allergy)';
+                        ingredientEl.appendChild(allergyEl);
+                    }
+                    
+                    // Toggle ingredient exclusion on click
+                    ingredientEl.addEventListener('click', function() {
+                        const ingredientId = this.dataset.ingredientId;
+                        
+                        if (this.classList.contains('excluded')) {
+                            // Remove from excluded ingredients
+                            excludedIngredients = excludedIngredients.filter(id => id !== ingredientId);
+                            this.classList.remove('excluded');
+                        } else {
+                            // Add to excluded ingredients
+                            excludedIngredients.push(ingredientId);
+                            this.classList.add('excluded');
+                        }
+                    });
+                    
+                    ingredientsGrid.appendChild(ingredientEl);
+                });
+            }
+            
+            // Función para agregar un ítem personalizado al ticket
+            function addCustomizedItemToTicket() {
+                const customizations = {
+                    variant: selectedVariant,
+                    excludedIngredients: excludedIngredients
+                };
+                
                 fetch(`${API_BASE_URL}/ticket/${tableNumber}/add_item`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify({ item_id: itemId, quantity: 1 })
+                    body: JSON.stringify({ 
+                        item_id: currentItemId, 
+                        quantity: 1,
+                        customizations: customizations
+                    })
                 })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.success) {
-                        alert('Ítem agregado al ticket');
+                        // Show a subtle notification instead of alert
+                        showNotification('Ítem agregado al ticket');
                     } else {
-                        alert(data.message || 'Error al agregar el ítem');
+                        console.error('Error al agregar el ítem:', data.message);
+                        showNotification(data.message || 'Error al agregar el ítem', 'error');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Error al agregar el ítem. Intenta nuevamente.');
+                    showNotification('Error al agregar el ítem. Intenta nuevamente.', 'error');
                 });
+            }
+            
+            // Función para mostrar notificaciones
+            function showNotification(message, type = 'success') {
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.textContent = message;
+                
+                // Add to body
+                document.body.appendChild(notification);
+                
+                // Trigger animation
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 10);
+                
+                // Remove after delay
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 3000);
             }
 
             // También necesitamos agregar el estado para el menú
