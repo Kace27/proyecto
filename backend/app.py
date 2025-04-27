@@ -433,6 +433,7 @@ def confirm_ticket(table_number):
         ticket["ticket_number"] = ticket_number
         ticket["timestamp"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         ticket["status"] = "pending"  # pending, preparing, ready, delivered
+        ticket["table"] = table_number  # Añadir el número de mesa al ticket
         
         # Guardar ticket actualizado
         save_tickets(tickets_data)
@@ -467,16 +468,21 @@ def update_ticket_status(table_number):
         return jsonify({'success': False, 'message': 'Ticket no encontrado'}), 404
     
     tickets_data["tickets"][table_number]["status"] = new_status
+    
+    # Asegurar que el ticket incluya el número de mesa
+    ticket_copy = tickets_data["tickets"][table_number].copy()
+    ticket_copy["table"] = table_number
+    
     save_tickets(tickets_data)
     
     # Emitir evento para actualizar a todos los clientes
     socketio.emit('ticket_status_changed', {
         'table': table_number,
         'status': new_status,
-        'ticket': tickets_data["tickets"][table_number]
+        'ticket': ticket_copy
     })
     
-    return jsonify({'success': True, 'ticket': tickets_data["tickets"][table_number]})
+    return jsonify({'success': True, 'ticket': ticket_copy})
 
 @app.route('/tickets/kitchen', methods=['GET'])
 def get_kitchen_tickets():
@@ -489,7 +495,10 @@ def get_kitchen_tickets():
     for table_number, ticket in tickets_data["tickets"].items():
         # Solo incluir tickets confirmados (con status)
         if "status" in ticket and ticket["items"] and len(ticket["items"]) > 0:
-            kitchen_tickets[table_number] = ticket
+            # Asegurar que el ticket tenga el número de mesa incluido
+            ticket_copy = ticket.copy()
+            ticket_copy["table"] = table_number
+            kitchen_tickets[table_number] = ticket_copy
     
     return jsonify({"tickets": kitchen_tickets})
 

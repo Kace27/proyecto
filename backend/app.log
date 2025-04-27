@@ -8825,3 +8825,211 @@
 2025-04-16 16:12:43,162 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:43] "GET /tickets/active HTTP/1.1" 200 -
 2025-04-16 16:12:53,171 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:12:53] "GET /tickets/active HTTP/1.1" 200 -
 2025-04-16 16:13:03,157 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:13:03] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:13:13,158 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:13:13] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:13:23,154 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:13:23] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:13:33,155 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:13:33] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:13:43,154 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:13:43] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:13:53,155 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:13:53] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:14:02,277 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:14:02] "[35m[1mGET /socket.io/?EIO=4&transport=websocket HTTP/1.1[0m" 500 -
+2025-04-16 16:14:02,313 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 324, in run_wsgi
+    execute(self.server.app)
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 318, in execute
+    write(b"")
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 264, in write
+    assert status_set is not None, "write() before start_response"
+AssertionError: write() before start_response
+2025-04-16 16:14:03,176 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:14:03] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:14:03,521 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:14:03] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-16 16:31:06,144 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:31:06] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:33:11,410 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:33:11] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:37:35,802 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:37:35] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:52:13,708 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:52:13] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:53:49,443 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:53:49] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:53:59,104 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:53:59] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:54:09,067 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:54:09] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-16 16:54:13,778 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 16:54:13] "[35m[1mGET /socket.io/?EIO=4&transport=websocket HTTP/1.1[0m" 500 -
+2025-04-16 16:54:13,781 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 324, in run_wsgi
+    execute(self.server.app)
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 318, in execute
+    write(b"")
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 264, in write
+    assert status_set is not None, "write() before start_response"
+AssertionError: write() before start_response
+2025-04-27 10:36:51,365 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-27 10:36:51,366 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-27 10:36:51,366 - werkzeug - INFO -  * Running on http://192.168.0.209:5002/ (Press CTRL+C to quit)
+2025-04-27 10:36:51,366 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 10:36:51,537 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-27 10:36:51,537 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 10:36:51,545 - werkzeug - INFO -  * Debugger PIN: 536-437-644
+2025-04-27 10:36:56,104 - __main__ - INFO - Recibida solicitud a /test-cors
+2025-04-27 10:36:56,106 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:36:56] "GET /test-cors HTTP/1.1" 200 -
+2025-04-27 10:36:56,135 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:36:56] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-04-27 10:36:56,141 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:36:56] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-04-27 10:37:25,615 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:25] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-27 10:37:29,102 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:29] "OPTIONS /ticket/undefined/status HTTP/1.1" 200 -
+2025-04-27 10:37:29,107 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:29] "[33mPOST /ticket/undefined/status HTTP/1.1[0m" 404 -
+2025-04-27 10:37:29,703 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:29] "[33mPOST /ticket/undefined/status HTTP/1.1[0m" 404 -
+2025-04-27 10:37:29,855 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:29] "[33mPOST /ticket/undefined/status HTTP/1.1[0m" 404 -
+2025-04-27 10:37:41,846 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:41] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-04-27 10:37:41,849 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-04-27 10:37:41,849 - __main__ - INFO - PIN recibido: 9012
+2025-04-27 10:37:41,850 - __main__ - INFO - PIN válido, empleado encontrado: Carlos Rodríguez, rol: Mesero
+2025-04-27 10:37:41,850 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:41] "POST /verify_pin HTTP/1.1" 200 -
+2025-04-27 10:37:41,904 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:41] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:37:43,991 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:43] "GET /menu HTTP/1.1" 200 -
+2025-04-27 10:37:49,782 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:49] "GET /menu HTTP/1.1" 200 -
+2025-04-27 10:37:52,248 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:52] "GET /ticket/1 HTTP/1.1" 200 -
+2025-04-27 10:37:57,443 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:37:57] "GET /ticket/1 HTTP/1.1" 200 -
+2025-04-27 10:38:00,930 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:38:00] "[33mPOST /ticket/1/clear HTTP/1.1[0m" 404 -
+2025-04-27 10:39:19,071 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:19] "GET /menu HTTP/1.1" 200 -
+2025-04-27 10:39:29,131 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:29] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:39:34,671 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:34] "GET /menu HTTP/1.1" 200 -
+2025-04-27 10:39:36,411 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:36] "GET /ticket/7 HTTP/1.1" 200 -
+2025-04-27 10:39:38,624 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:38] "GET /menu HTTP/1.1" 200 -
+2025-04-27 10:39:43,760 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:43] "OPTIONS /ticket/7/add_item HTTP/1.1" 200 -
+2025-04-27 10:39:43,768 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:43] "POST /ticket/7/add_item HTTP/1.1" 200 -
+2025-04-27 10:39:48,214 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:48] "GET /ticket/7 HTTP/1.1" 200 -
+2025-04-27 10:39:50,127 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:50] "OPTIONS /ticket/7/confirm HTTP/1.1" 200 -
+2025-04-27 10:39:50,132 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:50] "POST /ticket/7/confirm HTTP/1.1" 200 -
+2025-04-27 10:39:54,518 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:39:54] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:40:04,512 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:40:04] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:40:14,511 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:40:14] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:40:24,512 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:40:24] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:40:34,513 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:40:34] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:40:44,509 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:40:44] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:40:54,508 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:40:54] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:41:04,509 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:41:04] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:41:14,509 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:41:14] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:41:24,509 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:41:24] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:41:34,509 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:41:34] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:41:44,509 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:41:44] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:41:54,509 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:41:54] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:42:04,509 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:42:04] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:42:14,509 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:42:14] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:42:24,508 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:42:24] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:42:34,508 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:42:34] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:42:44,505 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:42:44] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:42:54,508 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:42:54] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:43:04,506 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:43:04] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:43:13,843 - werkzeug - INFO -  * Detected change in '/Users/kace/Documents/Ingenieria/proyecto/backend/app.py', reloading
+2025-04-27 10:43:13,896 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 10:43:14,149 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-27 10:43:14,149 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 10:43:14,156 - werkzeug - INFO -  * Debugger PIN: 536-437-644
+2025-04-27 10:43:14,513 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:43:14] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:43:14,779 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:43:14] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-27 10:43:24,503 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:43:24] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:43:25,282 - werkzeug - INFO -  * Detected change in '/Users/kace/Documents/Ingenieria/proyecto/backend/app.py', reloading
+2025-04-27 10:43:25,328 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 10:43:25,562 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-27 10:43:25,562 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 10:43:25,568 - werkzeug - INFO -  * Debugger PIN: 536-437-644
+2025-04-27 10:43:25,931 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:43:25] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-27 10:43:34,508 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:43:34] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:43:42,519 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-27 10:43:44,507 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:43:44] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:43:54,506 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:43:54] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:43:56,231 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:43:56] "[35m[1mGET /socket.io/?EIO=4&transport=websocket HTTP/1.1[0m" 500 -
+2025-04-27 10:43:56,233 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 324, in run_wsgi
+    execute(self.server.app)
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 318, in execute
+    write(b"")
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 264, in write
+    assert status_set is not None, "write() before start_response"
+AssertionError: write() before start_response
+2025-04-27 10:43:56,281 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:43:56] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-27 10:44:02,219 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:02] "[35m[1mGET /socket.io/?EIO=4&transport=websocket HTTP/1.1[0m" 500 -
+2025-04-27 10:44:02,220 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 324, in run_wsgi
+    execute(self.server.app)
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 318, in execute
+    write(b"")
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 264, in write
+    assert status_set is not None, "write() before start_response"
+AssertionError: write() before start_response
+2025-04-27 10:44:02,250 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:02] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-27 10:44:02,767 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:02] "[35m[1mGET /socket.io/?EIO=4&transport=websocket HTTP/1.1[0m" 500 -
+2025-04-27 10:44:02,767 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 324, in run_wsgi
+    execute(self.server.app)
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 318, in execute
+    write(b"")
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 264, in write
+    assert status_set is not None, "write() before start_response"
+AssertionError: write() before start_response
+2025-04-27 10:44:02,789 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:02] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-27 10:44:03,170 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:03] "[35m[1mGET /socket.io/?EIO=4&transport=websocket HTTP/1.1[0m" 500 -
+2025-04-27 10:44:03,171 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 324, in run_wsgi
+    execute(self.server.app)
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 318, in execute
+    write(b"")
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 264, in write
+    assert status_set is not None, "write() before start_response"
+AssertionError: write() before start_response
+2025-04-27 10:44:03,194 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:03] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-27 10:44:04,504 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:04] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:44:14,508 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:14] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:44:24,505 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:24] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:44:34,505 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:34] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:44:41,121 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:41] "OPTIONS /ticket/7/status HTTP/1.1" 200 -
+2025-04-27 10:44:41,125 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:41] "[33mPOST /ticket/7/status HTTP/1.1[0m" 404 -
+2025-04-27 10:44:42,119 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:42] "OPTIONS /ticket/2/status HTTP/1.1" 200 -
+2025-04-27 10:44:42,123 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:42] "[33mPOST /ticket/2/status HTTP/1.1[0m" 404 -
+2025-04-27 10:44:42,751 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:42] "[33mPOST /ticket/2/status HTTP/1.1[0m" 404 -
+2025-04-27 10:44:44,504 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:44] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:44:44,754 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:44] "[33mPOST /ticket/7/status HTTP/1.1[0m" 404 -
+2025-04-27 10:44:54,504 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:44:54] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:45:04,504 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:45:04] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:45:14,504 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:45:14] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:45:24,507 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:45:24] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:45:34,504 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:45:34] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:45:44,505 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:45:44] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:45:54,504 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:45:54] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:46:04,505 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:04] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:46:14,504 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:14] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:46:24,503 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:24] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:46:34,501 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:34] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:46:35,785 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:35] "OPTIONS /ticket/7/status HTTP/1.1" 200 -
+2025-04-27 10:46:35,788 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:35] "[33mPOST /ticket/7/status HTTP/1.1[0m" 404 -
+2025-04-27 10:46:36,383 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:36] "[33mPOST /ticket/7/status HTTP/1.1[0m" 404 -
+2025-04-27 10:46:38,483 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:38] "OPTIONS /ticket/2/status HTTP/1.1" 200 -
+2025-04-27 10:46:38,486 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:38] "[33mPOST /ticket/2/status HTTP/1.1[0m" 404 -
+2025-04-27 10:46:39,084 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:39] "[33mPOST /ticket/2/status HTTP/1.1[0m" 404 -
+2025-04-27 10:46:39,633 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:39] "[33mPOST /ticket/2/status HTTP/1.1[0m" 404 -
+2025-04-27 10:46:44,501 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:44] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:46:52,556 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:52] "[35m[1mGET /socket.io/?EIO=4&transport=websocket HTTP/1.1[0m" 500 -
+2025-04-27 10:46:52,558 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 324, in run_wsgi
+    execute(self.server.app)
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 318, in execute
+    write(b"")
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 264, in write
+    assert status_set is not None, "write() before start_response"
+AssertionError: write() before start_response
+2025-04-27 10:46:52,765 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:52] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-27 10:46:54,500 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:46:54] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:47:04,502 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:47:04] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:47:05,710 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:47:05] "GET /menu HTTP/1.1" 200 -
+2025-04-27 10:47:27,343 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:47:27] "OPTIONS /ticket/1/add_item HTTP/1.1" 200 -
+2025-04-27 10:47:27,351 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:47:27] "POST /ticket/1/add_item HTTP/1.1" 200 -
+2025-04-27 10:47:30,778 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:47:30] "GET /ticket/1 HTTP/1.1" 200 -
+2025-04-27 10:47:34,643 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:47:34] "[33mPOST /ticket/1/clear HTTP/1.1[0m" 404 -
+2025-04-27 10:47:39,124 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:47:39] "OPTIONS /ticket/1/confirm HTTP/1.1" 200 -
+2025-04-27 10:47:39,129 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:47:39] "POST /ticket/1/confirm HTTP/1.1" 200 -
+2025-04-27 10:47:43,410 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:47:43] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:47:53,384 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:47:53] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:48:03,388 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:48:03] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-27 10:48:13,385 - werkzeug - INFO - 127.0.0.1 - - [27/Apr/2025 10:48:13] "GET /tickets/active HTTP/1.1" 200 -
