@@ -45,6 +45,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        .ticket-header:hover {
+            opacity: 0.9;
+        }
+        .ticket-header:after {
+            content: '✓ Marcar como Listo';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            background-color: rgba(0,0,0,0.5);
+            padding: 8px 12px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        .ticket-header:hover:after {
+            opacity: 1;
         }
         .pending {
             background: #FF3B30;
@@ -84,7 +106,7 @@
         .items-container {
             padding: 15px;
             overflow-y: auto;
-            max-height: 430px;
+            max-height: 520px;
         }
         .item {
             margin-bottom: 15px;
@@ -111,27 +133,6 @@
             color: #FF3B30;
             font-size: 14px;
             margin: 5px 0;
-        }
-        .btn-action {
-            width: 80%;
-            margin: 0 auto;
-            display: block;
-            padding: 12px;
-            background: #FF7622;
-            color: white;
-            border: none;
-            border-radius: 9px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .controls {
-            position: absolute;
-            bottom: 15px;
-            width: 100%;
-            padding: 0 15px;
-            box-sizing: border-box;
         }
         @media (max-width: 768px) {
             .tickets-container {
@@ -161,6 +162,16 @@
         
         .status-error {
             background-color: #FF3B30;
+        }
+        
+        /* Estilo para el mensaje informativo */
+        .info-message {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0099ff;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-size: 14px;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">

@@ -11,6 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
     connectionStatus.textContent = 'Desconectado';
     document.body.appendChild(connectionStatus);
     
+    // Crear y añadir la nota informativa
+    const infoMessage = document.createElement('div');
+    infoMessage.className = 'info-message';
+    infoMessage.innerHTML = '<strong>Nota:</strong> Haz clic en la cabecera de un ticket para marcarlo como "Listo" y quitarlo de la pantalla.';
+    document.querySelector('header').appendChild(infoMessage);
+    
     // Estado
     const tickets = {};
     const ticketTimes = {};
@@ -149,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Actualizar el contenido del ticket
         ticketElement.innerHTML = `
-            <div class="ticket-header ${timeClass}">
+            <div class="ticket-header ${timeClass}" onclick="changeTicketStatus('${tableNumber}', 'ready')">
                 <div class="table-info">
                     Mesa ${tableNumber}
                     <span>${ticket.ticket_number || 'Sin número'}</span>
@@ -158,10 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="items-container">
                 ${itemsHtml}
-            </div>
-            <div class="controls">
-                <button class="btn-action" onclick="changeTicketStatus('${tableNumber}', 'preparing')">Preparando</button>
-                <button class="btn-action" onclick="changeTicketStatus('${tableNumber}', 'ready')" style="background: #34C759">Listo</button>
             </div>
         `;
     }
@@ -186,6 +188,18 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.success) {
                 console.log(`Estado de ticket ${tableNumber} actualizado a ${status}`);
+                
+                // Si el estado es "ready", remover el ticket de la pantalla
+                if (status === 'ready') {
+                    const ticketElement = document.getElementById(`ticket-${tableNumber}`);
+                    if (ticketElement) {
+                        ticketElement.remove();
+                    }
+                    
+                    // Eliminar el ticket del estado local
+                    delete tickets[tableNumber];
+                    delete ticketTimes[tableNumber];
+                }
             } else {
                 console.error('Error al actualizar estado:', data.message);
             }
