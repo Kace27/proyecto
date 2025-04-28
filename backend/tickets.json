@@ -3,26 +3,45 @@
         "1": {
             "items": [
                 {
-                    "id": 2,
-                    "name": "Papas (Var. B) (Sin ginger)",
-                    "price": 120,
+                    "id": 1,
+                    "name": "Hamburguesas (Var. A)",
+                    "price": 100,
                     "quantity": 1,
                     "customizations": {
-                        "variant": "B",
+                        "variant": "A",
+                        "excludedIngredients": []
+                    }
+                }
+            ],
+            "total": 100,
+            "ticket_number": "0-0001",
+            "timestamp": "2025-04-27 11:41:30",
+            "status": "ready",
+            "table": "1"
+        },
+        "4": {
+            "items": [
+                {
+                    "id": 6,
+                    "name": "Pizzas Veggie (Var. A) (Sin salt)",
+                    "price": 150,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "A",
                         "excludedIngredients": [
-                            "ginger"
+                            "salt"
                         ]
                     },
                     "excludedIngredients": [
-                        "ginger"
+                        "salt"
                     ]
                 }
             ],
-            "total": 120,
-            "ticket_number": "0-0001",
-            "timestamp": "2025-04-27 10:47:39",
-            "status": "pending",
-            "table": "1"
+            "total": 150,
+            "ticket_number": "0-0002",
+            "timestamp": "2025-04-27 11:53:13",
+            "status": "preparing",
+            "table": "4"
         }
     }
 }

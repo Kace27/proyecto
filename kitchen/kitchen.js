@@ -100,6 +100,17 @@ document.addEventListener('DOMContentLoaded', function() {
         updateTicketDisplay(tableNumber);
     }
     
+    // Determinar clase de tiempo basado en minutos transcurridos
+    function getTimeClass(elapsedMinutes) {
+        if (elapsedMinutes <= 2) {
+            return 'time-good'; // Verde: 0:00 a 2:00
+        } else if (elapsedMinutes <= 3) {
+            return 'time-warning'; // Amarillo: 2:01 a 3:00
+        } else {
+            return 'time-danger'; // Rojo: 3:01 en adelante
+        }
+    }
+    
     // Actualizar la visualización de un ticket
     function updateTicketDisplay(tableNumber) {
         const ticket = tickets[tableNumber];
@@ -125,21 +136,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const elapsedSeconds = Math.floor(((now - startTime) % 60000) / 1000);
         const timeDisplay = `${elapsedMinutes.toString().padStart(2, '0')}:${elapsedSeconds.toString().padStart(2, '0')}`;
         
+        // Determinar clase de tiempo en base a minutos transcurridos
+        const timeClass = getTimeClass(elapsedMinutes);
+        
         // Generar HTML para los elementos del ticket
         const itemsHtml = ticket.items.map(item => `
             <div class="item">
-                <div class="item-tag">#${item.customizations ? 'Personalizado' : 'Estándar'}</div>
                 <div class="item-name">${item.name || 'Artículo sin nombre'}</div>
-                <div class="item-id">ID: ${item.id || 'N/A'}</div>
-                <div class="item-price">$${item.price || 0} × ${item.quantity || 1}</div>
                 ${item.excludedIngredients ? `<div class="item-excluded">Sin: ${item.excludedIngredients.join(', ')}</div>` : ''}
-                <button class="btn-done" onclick="markItemDone(this)">Done</button>
             </div>
         `).join('');
         
         // Actualizar el contenido del ticket
         ticketElement.innerHTML = `
-            <div class="ticket-header ${statusClass}">
+            <div class="ticket-header ${timeClass}">
                 <div class="table-info">
                     Mesa ${tableNumber}
                     <span>${ticket.ticket_number || 'Sin número'}</span>
@@ -164,12 +174,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000);
     
     // Funciones globales para manejar eventos de botones
-    window.markItemDone = function(button) {
-        button.textContent = '✓';
-        button.disabled = true;
-        button.style.backgroundColor = '#34C759';
-    };
-    
     window.changeTicketStatus = function(tableNumber, status) {
         fetch(`${API_URL}/ticket/${tableNumber}/status`, {
             method: 'POST',
