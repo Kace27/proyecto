@@ -6,51 +6,27 @@
             "items": [
                 {
                     "id": 1,
-                    "name": "Hamburguesas",
+                    "name": "Hamburguesa",
                     "price": 100,
-                    "image": "https://placehold.co/122x84"
+                    "image": "/img/hamburguesa.png"
                 },
                 {
                     "id": 2,
-                    "name": "Papas",
+                    "name": "Pizza",
                     "price": 120,
-                    "image": "https://placehold.co/122x84"
+                    "image": "/img/pizza.png"
                 },
                 {
                     "id": 3,
-                    "name": "Ensaladas",
+                    "name": "Alitas",
                     "price": 90,
-                    "image": "https://placehold.co/122x84"
+                    "image": "/img/alitas.png"
                 },
                 {
                     "id": 4,
-                    "name": "Pizzas Clásica",
-                    "price": 150,
-                    "image": "https://placehold.co/122x84"
-                },
-                {
-                    "id": 5,
-                    "name": "Pizzas Pepperoni",
-                    "price": 150,
-                    "image": "https://placehold.co/122x84"
-                },
-                {
-                    "id": 6,
-                    "name": "Pizzas Veggie",
-                    "price": 150,
-                    "image": "https://placehold.co/122x84"
-                },
-                {
-                    "id": 7,
-                    "name": "Pizzas Hawaiana",
-                    "price": 150,
-                    "image": "https://placehold.co/122x84"
-                },
-                {
-                    "id": 8,
-                    "name": "Pizzas Suprema",
-                    "price": 150,
-                    "image": "https://placehold.co/122x84"
+                    "name": "Boneless",
+                    "price": 95,
+                    "image": "/img/boneless.png"
                 }
             ]
         },
@@ -62,25 +38,25 @@
                     "id": 9,
                     "name": "Agua",
                     "price": 80,
-                    "image": "https://placehold.co/122x84"
+                    "image": "/img/agua.png"
                 },
                 {
                     "id": 10,
                     "name": "Coca Cola",
                     "price": 110,
-                    "image": "https://placehold.co/122x84"
+                    "image": "/img/cocacola.png"
                 },
                 {
                     "id": 11,
                     "name": "Cerveza",
                     "price": 130,
-                    "image": "https://placehold.co/122x84"
+                    "image": "/img/cerveza.png"
                 },
                 {
                     "id": 12,
                     "name": "Vino",
                     "price": 95,
-                    "image": "https://placehold.co/122x84"
+                    "image": "/img/vino.png"
                 }
             ]
         }
