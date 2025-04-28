@@ -9591,3 +9591,80 @@ AssertionError: write() before start_response
 2025-04-28 10:46:42,073 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:46:42] "GET /menu HTTP/1.1" 200 -
 2025-04-28 10:46:45,302 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:46:45] "GET /ticket/3 HTTP/1.1" 200 -
 2025-04-28 10:46:55,639 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:46:55] "[33mPOST /ticket/3/clear HTTP/1.1[0m" 404 -
+2025-04-28 10:50:24,701 - werkzeug - INFO -  * Detected change in '/Users/kace/Documents/Ingenieria/proyecto/backend/app.py', reloading
+2025-04-28 10:50:24,771 - werkzeug - INFO -  * Restarting with stat
+2025-04-28 10:50:25,046 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-28 10:50:25,046 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 10:50:25,052 - werkzeug - INFO -  * Debugger PIN: 536-437-644
+2025-04-28 10:50:25,658 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:50:25] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-28 10:50:49,028 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-28 10:51:17,929 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-28 10:51:17,929 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-28 10:51:17,929 - werkzeug - INFO -  * Running on http://192.168.0.209:5002/ (Press CTRL+C to quit)
+2025-04-28 10:51:17,929 - werkzeug - INFO -  * Restarting with stat
+2025-04-28 10:51:18,076 - __main__ - INFO - Iniciando servidor Flask con Socket.IO...
+2025-04-28 10:51:18,076 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 10:51:18,082 - werkzeug - INFO -  * Debugger PIN: 536-437-644
+2025-04-28 10:51:19,516 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:51:19] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-28 10:51:32,717 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:51:32] "GET /ticket/3 HTTP/1.1" 200 -
+2025-04-28 10:51:35,654 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:51:35] "POST /ticket/3/clear HTTP/1.1" 200 -
+2025-04-28 10:51:35,659 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:51:35] "GET /ticket/3 HTTP/1.1" 200 -
+2025-04-28 10:51:39,685 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:51:39] "[35m[1mGET /socket.io/?EIO=4&transport=websocket HTTP/1.1[0m" 500 -
+2025-04-28 10:51:39,687 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 324, in run_wsgi
+    execute(self.server.app)
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 318, in execute
+    write(b"")
+  File "/Users/kace/Documents/Ingenieria/proyecto/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 264, in write
+    assert status_set is not None, "write() before start_response"
+AssertionError: write() before start_response
+2025-04-28 10:51:39,800 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:51:39] "GET /tickets/kitchen HTTP/1.1" 200 -
+2025-04-28 10:51:45,762 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:51:45] "GET /menu HTTP/1.1" 200 -
+2025-04-28 10:51:47,938 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:51:47] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:51:57,933 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:51:57] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:52:07,929 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:07] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:52:17,932 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:17] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:52:24,593 - __main__ - INFO - Recibida solicitud a /test-cors
+2025-04-28 10:52:24,594 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:24] "GET /test-cors HTTP/1.1" 200 -
+2025-04-28 10:52:24,646 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:24] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-04-28 10:52:24,648 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:24] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-04-28 10:52:26,913 - __main__ - INFO - Recibida solicitud a /test-cors
+2025-04-28 10:52:26,914 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:26] "GET /test-cors HTTP/1.1" 200 -
+2025-04-28 10:52:26,916 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:26] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-04-28 10:52:26,918 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:26] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-04-28 10:52:31,921 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:31] "OPTIONS /verify_pin HTTP/1.1" 200 -
+2025-04-28 10:52:31,925 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-04-28 10:52:31,926 - __main__ - INFO - PIN recibido: 0912
+2025-04-28 10:52:31,927 - __main__ - INFO - PIN no encontrado en la base de datos
+2025-04-28 10:52:31,927 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:31] "[33mPOST /verify_pin HTTP/1.1[0m" 404 -
+2025-04-28 10:52:34,621 - __main__ - INFO - Recibida solicitud POST a /verify_pin
+2025-04-28 10:52:34,622 - __main__ - INFO - PIN recibido: 9012
+2025-04-28 10:52:34,622 - __main__ - INFO - PIN válido, empleado encontrado: Carlos Rodríguez, rol: Mesero
+2025-04-28 10:52:34,623 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:34] "POST /verify_pin HTTP/1.1" 200 -
+2025-04-28 10:52:34,665 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:34] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:52:42,455 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:42] "GET /menu HTTP/1.1" 200 -
+2025-04-28 10:52:46,008 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:46] "GET /ticket/3 HTTP/1.1" 200 -
+2025-04-28 10:52:48,106 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:48] "GET /menu HTTP/1.1" 200 -
+2025-04-28 10:52:55,370 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:55] "OPTIONS /ticket/3/add_item HTTP/1.1" 200 -
+2025-04-28 10:52:55,377 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:52:55] "POST /ticket/3/add_item HTTP/1.1" 200 -
+2025-04-28 10:53:02,672 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:53:02] "OPTIONS /ticket/3/add_item HTTP/1.1" 200 -
+2025-04-28 10:53:02,677 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:53:02] "POST /ticket/3/add_item HTTP/1.1" 200 -
+2025-04-28 10:53:06,121 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:53:06] "POST /ticket/3/add_item HTTP/1.1" 200 -
+2025-04-28 10:53:07,377 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:53:07] "GET /ticket/3 HTTP/1.1" 200 -
+2025-04-28 10:53:09,654 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:53:09] "OPTIONS /ticket/3/confirm HTTP/1.1" 200 -
+2025-04-28 10:53:09,661 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:53:09] "POST /ticket/3/confirm HTTP/1.1" 200 -
+2025-04-28 10:55:18,501 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:55:18] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:55:28,496 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:55:28] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:55:38,495 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:55:38] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:55:48,496 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:55:48] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:55:58,497 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:55:58] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:56:08,495 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:56:08] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:56:18,496 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:56:18] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:56:28,495 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:56:28] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:56:38,496 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:56:38] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:56:48,494 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:56:48] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:56:58,492 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:56:58] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:57:08,490 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:57:08] "GET /tickets/active HTTP/1.1" 200 -
+2025-04-28 10:57:18,491 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 10:57:18] "GET /tickets/active HTTP/1.1" 200 -

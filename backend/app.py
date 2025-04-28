@@ -502,6 +502,31 @@ def get_kitchen_tickets():
     
     return jsonify({"tickets": kitchen_tickets})
 
+@app.route('/ticket/<table_number>/clear', methods=['POST'])
+def clear_ticket(table_number):
+    """Elimina todos los ítems del ticket de una mesa"""
+    try:
+        tickets_data = load_tickets()
+        
+        # Inicializar o reiniciar el ticket
+        tickets_data["tickets"][table_number] = {
+            "table": table_number,
+            "items": [],
+            "total": 0
+        }
+        
+        # Guardar cambios
+        save_tickets(tickets_data)
+        
+        return jsonify({
+            'success': True, 
+            'message': 'Ticket limpiado correctamente', 
+            'ticket': tickets_data["tickets"][table_number]
+        })
+    except Exception as e:
+        logger.error(f"Error al limpiar el ticket: {str(e)}")
+        return jsonify({'success': False, 'message': f'Error: {str(e)}'}), 500
+
 if __name__ == '__main__':
     logger.info("Iniciando servidor Flask con Socket.IO...")
     init_db()  # Initialize database on startup

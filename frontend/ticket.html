@@ -324,8 +324,15 @@
 
             // Remover ítem del ticket
             function removeItemFromTicket(index) {
-                fetch(`${API_BASE_URL}/ticket/${tableNumber}/remove_item/${index}`, {
-                    method: 'DELETE'
+                fetch(`${API_BASE_URL}/ticket/${tableNumber}/remove_item`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        item_index: index
+                    })
                 })
                 .then(response => response.json())
                 .then(data => {

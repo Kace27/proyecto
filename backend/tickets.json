@@ -1,20 +1,25 @@
 {
     "tickets": {
         "3": {
+            "table": "3",
             "items": [
                 {
-                    "id": 4,
-                    "name": "Boneless (Var. B) (Sin salsa_buffalo)",
-                    "price": 95,
+                    "id": 2,
+                    "name": "Pizza (Var. B) (Sin queso, cebolla, champinones)",
+                    "price": 120,
                     "quantity": 1,
                     "customizations": {
                         "variant": "B",
                         "excludedIngredients": [
-                            "salsa_buffalo"
+                            "queso",
+                            "cebolla",
+                            "champinones"
                         ]
                     },
                     "excludedIngredients": [
-                        "salsa_buffalo"
+                        "queso",
+                        "cebolla",
+                        "champinones"
                     ]
                 },
                 {
@@ -31,13 +36,22 @@
                     "excludedIngredients": [
                         "hielo"
                     ]
+                },
+                {
+                    "id": 10,
+                    "name": "Coca Cola (Var. B)",
+                    "price": 110,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": []
+                    }
                 }
             ],
-            "total": 205,
+            "total": 340,
             "ticket_number": "0-0001",
-            "timestamp": "2025-04-28 10:45:07",
-            "status": "pending",
-            "table": "3"
+            "timestamp": "2025-04-28 10:53:09",
+            "status": "pending"
         }
     }
 }
