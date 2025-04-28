@@ -1,47 +1,43 @@
 {
     "tickets": {
-        "1": {
+        "3": {
             "items": [
                 {
-                    "id": 1,
-                    "name": "Hamburguesas (Var. A)",
-                    "price": 100,
+                    "id": 4,
+                    "name": "Boneless (Var. B) (Sin salsa_buffalo)",
+                    "price": 95,
                     "quantity": 1,
                     "customizations": {
-                        "variant": "A",
-                        "excludedIngredients": []
-                    }
-                }
-            ],
-            "total": 100,
-            "ticket_number": "0-0001",
-            "timestamp": "2025-04-27 11:41:30",
-            "status": "ready",
-            "table": "1"
-        },
-        "4": {
-            "items": [
-                {
-                    "id": 6,
-                    "name": "Pizzas Veggie (Var. A) (Sin salt)",
-                    "price": 150,
-                    "quantity": 1,
-                    "customizations": {
-                        "variant": "A",
+                        "variant": "B",
                         "excludedIngredients": [
-                            "salt"
+                            "salsa_buffalo"
                         ]
                     },
                     "excludedIngredients": [
-                        "salt"
+                        "salsa_buffalo"
+                    ]
+                },
+                {
+                    "id": 10,
+                    "name": "Coca Cola (Var. B) (Sin hielo)",
+                    "price": 110,
+                    "quantity": 1,
+                    "customizations": {
+                        "variant": "B",
+                        "excludedIngredients": [
+                            "hielo"
+                        ]
+                    },
+                    "excludedIngredients": [
+                        "hielo"
                     ]
                 }
             ],
-            "total": 150,
-            "ticket_number": "0-0002",
-            "timestamp": "2025-04-27 11:53:13",
-            "status": "preparing",
-            "table": "4"
+            "total": 205,
+            "ticket_number": "0-0001",
+            "timestamp": "2025-04-28 10:45:07",
+            "status": "pending",
+            "table": "3"
         }
     }
 }

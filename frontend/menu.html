@@ -217,10 +217,8 @@
             
             <div class="variant-section">
                 <h3>VARIANTE:</h3>
-                <div class="variant-options">
-                    <div class="variant-option" data-variant="A">A</div>
-                    <div class="variant-option active" data-variant="B">B</div>
-                    <div class="variant-option" data-variant="C">C</div>
+                <div class="variant-options" id="variant-options">
+                    <!-- Variants will be populated dynamically -->
                 </div>
             </div>
             
@@ -253,12 +251,12 @@
             const modalContainer = document.querySelector('.modal-container');
             const modalItemName = document.getElementById('modal-item-name');
             const modalClose = document.getElementById('modal-close');
-            const variantOptions = document.querySelectorAll('.variant-option');
             const ingredientsGrid = document.getElementById('ingredients-grid');
             const modalSave = document.getElementById('modal-save');
             
             // Variables para el modal
             let currentItemId = null;
+            let currentItem = null;
             let selectedVariant = 'B'; // Default variant
             let excludedIngredients = [];
             
@@ -296,14 +294,13 @@
                 }
             });
             
-            // Variant selection
-            variantOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    variantOptions.forEach(opt => opt.classList.remove('active'));
-                    this.classList.add('active');
-                    selectedVariant = this.getAttribute('data-variant');
-                });
-            });
+            // Función para cerrar el modal
+            function closeModal() {
+                itemModal.classList.remove('show');
+                
+                // Remove body class to allow scrolling
+                document.body.classList.remove('modal-open');
+            }
             
             // Save button
             modalSave.addEventListener('click', function() {
@@ -410,17 +407,14 @@
             // Función para abrir el modal
             function openModal(item) {
                 currentItemId = item.id;
+                currentItem = item;
                 modalItemName.textContent = item.name;
-                selectedVariant = 'B'; // Reset to default
-                excludedIngredients = []; // Reset excluded ingredients
                 
-                // Reset variant selection UI
-                variantOptions.forEach(option => {
-                    option.classList.remove('active');
-                    if (option.getAttribute('data-variant') === 'B') {
-                        option.classList.add('active');
-                    }
-                });
+                // Reset excluded ingredients
+                excludedIngredients = [];
+                
+                // Populate variants
+                populateVariants(item);
                 
                 // Populate ingredients
                 populateIngredients(item);
@@ -432,45 +426,90 @@
                 document.body.classList.add('modal-open');
             }
             
-            // Función para cerrar el modal
-            function closeModal() {
-                itemModal.classList.remove('show');
+            // Función para poblar las variantes en el modal
+            function populateVariants(item) {
+                const variantOptionsEl = document.getElementById('variant-options');
+                variantOptionsEl.innerHTML = '';
                 
-                // Remove body class to allow scrolling
-                document.body.classList.remove('modal-open');
+                // Default to first variant if none have default flag
+                selectedVariant = item.variants.length > 0 ? item.variants[0].id : 'B';
+                
+                item.variants.forEach(variant => {
+                    const variantEl = document.createElement('div');
+                    variantEl.className = 'variant-option';
+                    variantEl.dataset.variant = variant.id;
+                    variantEl.textContent = variant.id;
+                    
+                    // Set default variant if specified or first if none specified
+                    if (variant.default) {
+                        variantEl.classList.add('active');
+                        selectedVariant = variant.id;
+                    }
+                    
+                    // Add click event
+                    variantEl.addEventListener('click', function() {
+                        // Remove active class from all variant options
+                        document.querySelectorAll('.variant-option').forEach(opt => {
+                            opt.classList.remove('active');
+                        });
+                        
+                        // Add active class to clicked variant
+                        this.classList.add('active');
+                        
+                        // Update selected variant
+                        selectedVariant = this.dataset.variant;
+                    });
+                    
+                    variantOptionsEl.appendChild(variantEl);
+                });
             }
             
             // Función para poblar los ingredientes en el modal
             function populateIngredients(item) {
                 ingredientsGrid.innerHTML = '';
                 
-                // Ingredientes de ejemplo (en un entorno real, estos vendrían del backend)
-                const ingredients = [
-                    { id: 'salt', name: 'Salt', image: 'salt.png', allergy: false },
-                    { id: 'chicken', name: 'Chicken', image: 'chicken.png', allergy: false },
-                    { id: 'onion', name: 'Onion', image: 'onion.png', allergy: true },
-                    { id: 'garlic', name: 'Garlic', image: 'garlic.png', allergy: false },
-                    { id: 'pappers', name: 'Pappers', image: 'pappers.png', allergy: true },
-                    { id: 'ginger', name: 'Ginger', image: 'ginger.png', allergy: false },
-                    { id: 'broccoli', name: 'Broccoli', image: 'broccoli.png', allergy: false },
-                    { id: 'orange', name: 'Orange', image: 'orange.png', allergy: false },
-                    { id: 'walnut', name: 'Walnut', image: 'walnut.png', allergy: false }
-                ];
+                // If item has no ingredients, hide the ingredients section
+                const ingredientsSection = document.querySelector('.ingredients-section');
+                if (!item.ingredients || item.ingredients.length === 0) {
+                    ingredientsSection.style.display = 'none';
+                    return;
+                } else {
+                    ingredientsSection.style.display = 'block';
+                }
                 
-                // Map of SVG icons for ingredients
+                // Map of SVG icons for ingredients (reusing existing ones where applicable)
                 const iconMap = {
-                    salt: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a2 2 0 1 0 4 0 4 4 0 1 1 2 3.5v.5a2 2 0 1 1-4 0v-.5A4 4 0 0 1 10 13z"></path><path d="M12 12V2"></path></svg>',
-                    chicken: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.6 2.5a1 1 0 0 0-1.2 0l-2 1.3a1 1 0 0 0-.4.8V6l-2 1c-2 1-3 3.5-3 7v3c0 .7.3 1.3.8 1.8L8 20.8c.3.3.6.2 1-.2.5-.5 1.3-.5 1.8 0 .2.2.3.4.4.7 0 .5.6.7 1 .4l.8-.7c.4-.4.6-1 .6-1.5V13a2 2 0 1 1 4 0v7.5c0 .6.2 1.1.6 1.5l.8.7c.4.3 1 .1 1-.4.1-.3.2-.5.4-.7.5-.5 1.3-.5 1.8 0 .4.4.7.5 1 .2l2.2-2C21.7 18.3 22 17.7 22 17v-3c0-3.5-1-6-3-7l-2-1V4.6a1 1 0 0 0-.4-.8l-2-1.3z"></path></svg>',
+                    // Hamburger ingredients
+                    meat: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.6 2.5a1 1 0 0 0-1.2 0l-2 1.3a1 1 0 0 0-.4.8V6l-2 1c-2 1-3 3.5-3 7v3c0 .7.3 1.3.8 1.8L8 20.8c.3.3.6.2 1-.2.5-.5 1.3-.5 1.8 0 .2.2.3.4.4.7 0 .5.6.7 1 .4l.8-.7c.4-.4.6-1 .6-1.5V13a2 2 0 1 1 4 0v7.5c0 .6.2 1.1.6 1.5l.8.7c.4.3 1 .1 1-.4.1-.3.2-.5.4-.7.5-.5 1.3-.5 1.8 0 .4.4.7.5 1 .2l2.2-2C21.7 18.3 22 17.7 22 17v-3c0-3.5-1-6-3-7l-2-1V4.6a1 1 0 0 0-.4-.8l-2-1.3z"></path></svg>',
+                    lettuce: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10s3-4 6-4 6 4 6 4"></path><path d="M10 2v4"></path><path d="M10 6c-1 0-4 1-4 4"></path><path d="M22 10s-3-4-6-4-6 4-6 4"></path><path d="M14 6c1 0 4 1 4 4"></path><path d="M20 15a2 2 0 1 1 0-4"></path><path d="M4 15a2 2 0 1 0 0-4"></path><path d="M16 18a1 1 0 1 1 0-2"></path><path d="M8 18a1 1 0 1 0 0-2"></path><path d="M21 21a9 9 0 0 0-18 0"></path></svg>',
+                    cheese: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 14h15M14 123l4-3.5"></path><path d="M4.5 11.5 18 U"></path><path d="M20 5v16h-16"></path><path d="M17 14h-3"></path><path d="M14 17h-3"></path><path d="M17 11h-3"></path><path d="M14 8h-3"></path></svg>',
+                    tomato: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.1 8.2c-1 .7-3.2 3.1-3.2 5.2 0 2.4 2.5 4.3 4.7 3.5 1-.4 2-1.5 2.5-2.9.5 1.4 1.6 2.5 2.5 2.9 2.2.8 4.7-1.1 4.7-3.5 0-2.1-2.2-4.5-3.3-5.2"></path><path d="M12 8.6V5M10 7h4"></path><path d="M9 16c.9.9 2.9.9 3.8 0"></path></svg>',
                     onion: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7c-4.4 5.5-4.4 9.5 0 15 4.4-5.5 4.4-9.5 0-15z"></path><path d="M5 13c8 3 16 0 16 0s-8-3-16 0"></path><path d="M5 22c8 3 16 0 16 0s-8-3-16 0"></path><path d="M12 2c0 5 4.4 7 8 8"></path><path d="M12 2c0 5-4.4 7-8 8"></path></svg>',
-                    garlic: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 13a3 3 0 0 1-6 0"></path><path d="M14.5 7.5c-.5-1-1.5-2-2.5-2s-2 1-2.5 2"></path><path d="M10.5 6C9 6 8 7 7 8"></path><path d="M16.12 10.37c-2.5-1.47-5.77-1.47-8.24 0a2.1 2.1 0 0 0-.88 2.9l5 8.65a2.1 2.1 0 0 0 1.83 1.08c.74 0 1.42-.37 1.82-1.08l5-8.65a2.1 2.1 0 0 0-.88-2.9z"></path></svg>',
-                    pappers: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8c0-2-2-4-4-4s-4 2-4 4 2 10 4 10 4-8 4-10z"></path><path d="M12 8v3"></path><path d="M8.5 8.5 7 7"></path><path d="M15.5 8.5 17 7"></path></svg>',
-                    ginger: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8.71V10a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V8.71a2 2 0 0 1 .59-1.42l3.82-3.82a2 2 0 0 1 3.41 1.41V7a2 2 0 0 1-.59 1.42L19 11.66"></path><path d="M19 8.71V10a2 2 0 0 1-2 2h-2a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2h4.5"></path><path d="M2 9v1a2 2 0 0 0 2 2h3"></path><path d="M10 6V5a2 2 0 0 0-2-2V2"></path><path d="M18 16v2a2 2 0 0 1-2 2h-3"></path></svg>',
-                    broccoli: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3a2.5 2.5 0 0 0 3.2 3.2c.7.7 1.2 1.8 1.1 3.2"></path><path d="M5.1 19.1a2.5 2.5 0 0 1 3.5-3.5c1.1.6 2.6.6 3 0a2.5 2.5 0 0 1 4 2"></path><path d="M12 22c1 0 1.9-.6 2.5-1.6a2.5 2.5 0 0 1 3.7-3.7c1.7-.2 3-1.9 2.8-3.7"></path><path d="M17 13a2.5 2.5 0 0 0 3.5-3.5 2.5 2.5 0 0 0 1.5-4.5 2.5 2.5 0 0 0-4.5 1.5 2.5 2.5 0 0 0-3.5 3.5"></path><path d="M14 7.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 0-3.5-3.5 2.5 2.5 0 0 0-3.5 3.5 2.5 2.5 0 0 1 0 5"></path><path d="M7 13a2.5 2.5 0 0 1 5 0v2"></path></svg>',
-                    orange: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><path d="M12 4V2"></path><path d="M12 22v-2"></path><path d="M20 12h2"></path><path d="M2 12h2"></path></svg>',
-                    walnut: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"></path><path d="M9 10a2 2 0 1 1 4 0h6.3c-.19-.68-.41-1.38-.66-2.06-.8-2.14-1.9-3.95-3.28-3.95-1.2 0-2.26 1.13-2.88 2.78A5.5 5.5 0 0 0 12 7a5.5 5.5 0 0 0-.48-.23C10.89 6.12 9.84 5 8.65 5 7.25 5 6.17 6.8 5.36 8.94c-.25.68-.47 1.38-.66 2.06z"></path><path d="M14 10a2 2 0 0 1 4 0"></path><path d="M13 13a2 2 0 1 0-2-2"></path><path d="M13 13h-2"></path><path d="M15 13h2"></path></svg>'
+                    mayo: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h.01"></path><path d="M14 6h.01"></path><path d="M18 7a2 2 0 0 0-2.1-2H14a6 6 0 0 0-1.5.2 4 4 0 0 1-1.8-.2A4 4 0 0 0 8 5H5.1A2 2 0 0 0 3 7v15a2 2 0 0 0 2.1 2H8a6 6 0 0 0 1.8-.2 6 6 0 0 1 1.5-.2 4 4 0 0 1 1.8.2 4 4 0 0 0 .9.2h2.9a2 2 0 0 0 2.1-2V7z"></path><path d="M6 5V2"></path><path d="M18 5V2"></path></svg>',
+                    ketchup: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 22 1-1h18l1 1"></path><path d="M19 20v-8a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v8"></path><path d="M12 10V6M9 3h6"></path><path d="M10 6h4"></path></svg>',
+                    
+                    // Pizza ingredients
+                    tomato_sauce: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 22 1-1h18l1 1"></path><path d="M19 20v-8a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v8"></path><path d="M12 10V6M9 3h6"></path><path d="M10 6h4"></path></svg>',
+                    pepperoni: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><path d="M12 12v.01"></path><path d="M10 10v.01"></path><path d="M14 14v.01"></path><path d="M8 14v.01"></path><path d="M16 10v.01"></path></svg>',
+                    ham: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-5 5v7h5l2-3h4l2 3h5v-7l-5-5H8Z"></path><path d="M10 13a2 2 0 0 0 4 0"></path></svg>',
+                    mushroom: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a7 7 0 0 0 7-7h-1a6 6 0 0 0-12 0H5a7 7 0 0 0 7 7Z"></path><path d="M9 12v8a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-8"></path></svg>',
+                    bell_pepper: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8c0-2-2-4-4-4s-4 2-4 4 2 10 4 10 4-8 4-10z"></path><path d="M12 8v3"></path><path d="M8.5 8.5 7 7"></path><path d="M15.5 8.5 17 7"></path></svg>',
+                    olive: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a3 3 0 0 0 3 8"></path><path d="M16 12a3 3 0 0 1-3 8"></path><path d="M6 11a5 5 0 0 1 1.38-3.64C8.51 6.23 10.24 6 12 6c1.76 0 3.49.23 4.63 1.36A5 5 0 0 1 18 11"></path><path d="M12 19v-3"></path></svg>',
+                    
+                    // Wing ingredients
+                    chicken: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.6 2.5a1 1 0 0 0-1.2 0l-2 1.3a1 1 0 0 0-.4.8V6l-2 1c-2 1-3 3.5-3 7v3c0 .7.3 1.3.8 1.8L8 20.8c.3.3.6.2 1-.2.5-.5 1.3-.5 1.8 0 .2.2.3.4.4.7 0 .5.6.7 1 .4l.8-.7c.4-.4.6-1 .6-1.5V13a2 2 0 1 1 4 0v7.5c0 .6.2 1.1.6 1.5l.8.7c.4.3 1 .1 1-.4.1-.3.2-.5.4-.7.5-.5 1.3-.5 1.8 0 .4.4.7.5 1 .2l2.2-2C21.7 18.3 22 17.7 22 17v-3c0-3.5-1-6-3-7l-2-1V4.6a1 1 0 0 0-.4-.8l-2-1.3z"></path></svg>',
+                    buffalo_sauce: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17c2 0 4-1 4-3 0-1 0-4-1-5s-2-1-3-1-2 0-3 1-1 4-1 5c0 2 2 3 4 3Z"></path><path d="M18 17c2 0 4-1 4-3 0-1 0-4-1-5s-2-1-3-1-2 0-3 1-1 4-1 5c0 2 2 3 4 3Z"></path><path d="M12 9s-1 1-1 4c0 3 1 4 1 4"></path><path d="M6 13h12"></path></svg>',
+                    bbq_sauce: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V13h20Z"></path><path d="M8 13V8a4 4 0 0 1 4-4h0v9"></path><path d="M16 13V8a4 4 0 0 0-4-4h0v9"></path><path d="M4 9h8"></path><path d="M20 9h-8"></path></svg>',
+                    honey_mustard: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"></path><path d="M12 2a9.96 9.96 0 0 0-1.5 1.5"></path><path d="M8 2c-1.5 1-2.5 2-3 3"></path><path d="M16 2c1.5 1 2.5 2 3 3"></path><path d="M19 6.1c.9.9 1.5 2.2 1.7 3.5"></path><path d="M5 6.1C4.1 7 3.5 8.3 3.3 9.6"></path><path d="M20.5 14c0 .5-.2 1.1-.4 1.6"></path><path d="M3.5 14c0 .5.2 1.1.4 1.6"></path><path d="M18 20c-2 .5-5 .5-6 0"></path><path d="M6 20c2-.5 5-.5 6 0"></path></svg>',
+                    celery: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 22 10-10"></path><path d="m16 8-1.17 1.17"></path><path d="M22 12 12 2"></path><path d="M17 3 5 15a2 2 0 0 0 2 2l12-12"></path><path d="M19 5 7 17a2 2 0 0 0 2 2l12-12"></path></svg>',
+                    ranch: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h.01"></path><path d="M14 6h.01"></path><path d="M18 7a2 2 0 0 0-2.1-2H14a6 6 0 0 0-1.8.2 6 6 0 0 1-1.5.2 4 4 0 0 1-1.8-.2A4 4 0 0 0 8 5H5.1A2 2 0 0 0 3 7v15a2 2 0 0 0 2.1 2H8a6 6 0 0 0 1.8-.2 6 6 0 0 1 1.5-.2 4 4 0 0 1 1.8.2 4 4 0 0 0 .9.2h2.9a2 2 0 0 0 2.1-2V7z"></path><path d="M6 5V2"></path><path d="M18 5V2"></path></svg>',
+                    
+                    // Drink ingredients
+                    ice: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12-2 8h18l-2-8"></path><path d="M5 12H3l2-8h14l2 8h-2"></path><path d="M10 12v4"></path><path d="M14 12v4"></path><path d="M10 7V4"></path><path d="M14 7V4"></path></svg>',
+                    lemon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3Z"></path><path d="M9 5v14"></path><path d="M15 5v14"></path><path d="M5 9h14"></path><path d="M5 15h14"></path></svg>'
                 };
                 
-                ingredients.forEach(ingredient => {
+                item.ingredients.forEach(ingredient => {
                     const ingredientEl = document.createElement('div');
                     ingredientEl.className = 'ingredient-item';
                     ingredientEl.dataset.ingredientId = ingredient.id;
@@ -478,8 +517,8 @@
                     const iconEl = document.createElement('div');
                     iconEl.className = 'ingredient-icon';
                     
-                    // Use the SVG icon from the map
-                    iconEl.innerHTML = iconMap[ingredient.id];
+                    // Use the SVG icon from the map, fallback to first icon if not found
+                    iconEl.innerHTML = iconMap[ingredient.id] || Object.values(iconMap)[0];
                     
                     ingredientEl.appendChild(iconEl);
                     

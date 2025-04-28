@@ -8,25 +8,76 @@
                     "id": 1,
                     "name": "Hamburguesa",
                     "price": 100,
-                    "image": "/img/hamburguesa.png"
+                    "image": "/img/hamburguesa.png",
+                    "variants": [
+                    ],
+                    "ingredients": [
+                        {"id": "carne", "name": "Carne", "image": "meat.png", "allergy": false},
+                        {"id": "lechuga", "name": "Lechuga", "image": "lettuce.png", "allergy": false},
+                        {"id": "queso", "name": "Queso", "image": "cheese.png", "allergy": true},
+                        {"id": "tomate", "name": "Tomate", "image": "tomato.png", "allergy": false},
+                        {"id": "cebolla", "name": "Cebolla", "image": "onion.png", "allergy": true},
+                        {"id": "mayonesa", "name": "Mayonesa", "image": "mayo.png", "allergy": false},
+                        {"id": "ketchup", "name": "Ketchup", "image": "ketchup.png", "allergy": false}
+                    ]
                 },
                 {
                     "id": 2,
                     "name": "Pizza",
                     "price": 120,
-                    "image": "/img/pizza.png"
+                    "image": "/img/pizza.png",
+                    "variants": [
+                        {"id": "A", "name": "Individual"},
+                        {"id": "B", "name": "Mediana", "default": true},
+                        {"id": "C", "name": "Familiar"}
+                    ],
+                    "ingredients": [
+                        {"id": "salsa", "name": "Salsa", "image": "tomato_sauce.png", "allergy": false},
+                        {"id": "queso", "name": "Queso", "image": "cheese.png", "allergy": true},
+                        {"id": "pepperoni", "name": "Pepperoni", "image": "pepperoni.png", "allergy": false},
+                        {"id": "jamon", "name": "Jamón", "image": "ham.png", "allergy": false},
+                        {"id": "champinones", "name": "Champiñones", "image": "mushroom.png", "allergy": true},
+                        {"id": "cebolla", "name": "Cebolla", "image": "onion.png", "allergy": true},
+                        {"id": "pimiento", "name": "Pimiento", "image": "bell_pepper.png", "allergy": false},
+                        {"id": "aceitunas", "name": "Aceitunas", "image": "olive.png", "allergy": false}
+                    ]
                 },
                 {
                     "id": 3,
                     "name": "Alitas",
                     "price": 90,
-                    "image": "/img/alitas.png"
+                    "image": "/img/alitas.png",
+                    "variants": [
+                        {"id": "A", "name": "6 piezas"},
+                        {"id": "B", "name": "12 piezas", "default": true},
+                        {"id": "C", "name": "20 piezas"}
+                    ],
+                    "ingredients": [
+                        {"id": "pollo", "name": "Pollo", "image": "chicken.png", "allergy": false},
+                        {"id": "salsa_buffalo", "name": "Salsa Buffalo", "image": "buffalo_sauce.png", "allergy": false},
+                        {"id": "salsa_bbq", "name": "Salsa BBQ", "image": "bbq_sauce.png", "allergy": false},
+                        {"id": "miel_mostaza", "name": "Mostaza con Miel", "image": "honey_mustard.png", "allergy": true},
+                        {"id": "apio", "name": "Apio", "image": "celery.png", "allergy": true},
+                        {"id": "salsa_ranch", "name": "Salsa Ranch", "image": "ranch.png", "allergy": false}
+                    ]
                 },
                 {
                     "id": 4,
                     "name": "Boneless",
                     "price": 95,
-                    "image": "/img/boneless.png"
+                    "image": "/img/boneless.png",
+                    "variants": [
+                        {"id": "A", "name": "8 piezas"},
+                        {"id": "B", "name": "16 piezas", "default": true},
+                        {"id": "C", "name": "24 piezas"}
+                    ],
+                    "ingredients": [
+                        {"id": "pollo", "name": "Pollo", "image": "chicken.png", "allergy": false},
+                        {"id": "salsa_buffalo", "name": "Salsa Buffalo", "image": "buffalo_sauce.png", "allergy": false},
+                        {"id": "salsa_bbq", "name": "Salsa BBQ", "image": "bbq_sauce.png", "allergy": false},
+                        {"id": "miel_mostaza", "name": "Mostaza con Miel", "image": "honey_mustard.png", "allergy": true},
+                        {"id": "salsa_ranch", "name": "Salsa Ranch", "image": "ranch.png", "allergy": false}
+                    ]
                 }
             ]
         },
@@ -38,25 +89,55 @@
                     "id": 9,
                     "name": "Agua",
                     "price": 80,
-                    "image": "/img/agua.png"
+                    "image": "/img/agua.png",
+                    "variants": [
+                        {"id": "A", "name": "Chica"},
+                        {"id": "B", "name": "Mediana", "default": true},
+                        {"id": "C", "name": "Grande"}
+                    ],
+                    "ingredients": []
                 },
                 {
                     "id": 10,
                     "name": "Coca Cola",
                     "price": 110,
-                    "image": "/img/cocacola.png"
+                    "image": "/img/cocacola.png",
+                    "variants": [
+                        {"id": "A", "name": "Chica"},
+                        {"id": "B", "name": "Mediana", "default": true},
+                        {"id": "C", "name": "Grande"}
+                    ],
+                    "ingredients": [
+                        {"id": "hielo", "name": "Hielo", "image": "ice.png", "allergy": false},
+                        {"id": "limon", "name": "Limón", "image": "lemon.png", "allergy": false}
+                    ]
                 },
                 {
                     "id": 11,
                     "name": "Cerveza",
                     "price": 130,
-                    "image": "/img/cerveza.png"
+                    "image": "/img/cerveza.png",
+                    "variants": [
+                        {"id": "A", "name": "Botella"},
+                        {"id": "B", "name": "Vaso", "default": true},
+                        {"id": "C", "name": "Jarra"}
+                    ],
+                    "ingredients": [
+                        {"id": "hielo", "name": "Hielo", "image": "ice.png", "allergy": false},
+                        {"id": "limon", "name": "Limón", "image": "lemon.png", "allergy": false}
+                    ]
                 },
                 {
                     "id": 12,
                     "name": "Vino",
                     "price": 95,
-                    "image": "/img/vino.png"
+                    "image": "/img/vino.png",
+                    "variants": [
+                        {"id": "A", "name": "Copa"},
+                        {"id": "B", "name": "Media Botella", "default": true},
+                        {"id": "C", "name": "Botella"}
+                    ],
+                    "ingredients": []
                 }
             ]
         }
